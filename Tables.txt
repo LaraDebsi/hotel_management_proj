@@ -1,0 +1,139 @@
+CREATE TABLE hotel.Hotel_chain (
+    hotelchain_ID SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    co_address VARCHAR(255) NOT NULL,
+    num_hotels INT CHECK (num_hotels >= 1),
+    contact_email VARCHAR(255) UNIQUE NOT NULL,
+    contact_phone VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Hotel (
+    hotel_ID SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    category INT CHECK (category BETWEEN 1 AND 5),
+    num_rooms INT CHECK (num_rooms >= 1),
+    city VARCHAR(100) NOT NULL,
+    contact_email VARCHAR(255) UNIQUE NOT NULL,
+    contact_phone VARCHAR(15) NOT NULL,
+    hotelchain_ID INT REFERENCES Hotel_chain(hotelchain_ID) ON DELETE CASCADE,
+    address VARCHAR(255) NOT NULL;
+);
+
+CREATE TABLE hotel.position (
+    role_ID SERIAL PRIMARY KEY,  
+    position_title VARCHAR(100) UNIQUE NOT NULL,  
+    salary DECIMAL(10,2) CHECK (salary >= 0) NOT NULL;
+);
+
+CREATE TABLE hotel.employee (
+    employee_ID SERIAL PRIMARY KEY,  
+    hotel_ID INT NOT NULL,  
+    full_name VARCHAR(150) NOT NULL,  
+    address VARCHAR(255) NOT NULL,  
+    SSN_SIN VARCHAR(15) UNIQUE NOT NULL,  
+    role_ID INT NOT NULL,  
+    CONSTRAINT fk_employee_hotel FOREIGN KEY (hotel_ID) 
+        REFERENCES hotel.hotel(hotel_ID) ON DELETE CASCADE,
+    CONSTRAINT fk_employee_position FOREIGN KEY (role_ID) 
+        REFERENCES hotel.position(role_ID) ON DELETE RESTRICT
+);
+
+CREATE TABLE hotel.customer (
+    customer_ID SERIAL PRIMARY KEY,  
+    full_name VARCHAR(150) NOT NULL,  
+    address VARCHAR(255) NOT NULL,  
+    SSN_SIN VARCHAR(15) UNIQUE NOT NULL,  
+    registration_date DATE NOT NULL DEFAULT CURRENT_DATE  
+);
+
+CREATE TABLE hotel.room (
+    room_ID SERIAL PRIMARY KEY,  
+    hotel_ID INT NOT NULL,  
+    price DECIMAL(10,2) CHECK (price >= 0) NOT NULL,  
+    capacity VARCHAR(20) CHECK (capacity IN ('single', 'double', 'suite')) NOT NULL,  
+    extendable BOOLEAN DEFAULT FALSE,  
+    damage TEXT DEFAULT NULL,  
+    view_type VARCHAR(50) CHECK (view_type IN ('sea', 'mountain', 'none')) NOT NULL,  
+    availability_status VARCHAR(20) CHECK (availability_status IN ('available', 'booked', 'rented', 'under maintenance')) DEFAULT 'available', 
+    CONSTRAINT fk_room_hotel FOREIGN KEY (hotel_ID) 
+        REFERENCES hotel.hotel(hotel_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE hotel.room_amenities (
+    room_ID INT NOT NULL,  
+    amenity VARCHAR(100) NOT NULL,  
+    PRIMARY KEY (room_ID, amenity),
+    FOREIGN KEY (room_ID) REFERENCES hotel.room(room_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE hotel.booking (
+    booking_ID SERIAL PRIMARY KEY,  
+    customer_ID INT NOT NULL,  
+    room_ID INT NOT NULL,  
+    start_date DATE NOT NULL,  
+    end_date DATE NOT NULL,  
+    status VARCHAR(20) CHECK (status IN ('confirmed', 'cancelled', 'checked-in')) NOT NULL,  
+    booking_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
+    CONSTRAINT fk_booking_customer FOREIGN KEY (customer_ID) 
+        REFERENCES hotel.customer(customer_ID) ON DELETE CASCADE,
+    CONSTRAINT fk_booking_room FOREIGN KEY (room_ID) 
+        REFERENCES hotel.room(room_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE hotel.renting (
+    renting_ID SERIAL PRIMARY KEY,  
+    customer_ID INT NOT NULL,  
+    employee_ID INT NOT NULL,  
+    room_ID INT NOT NULL,  
+    booking_ID INT NULL,  
+    start_date DATE NOT NULL,  
+    end_date DATE NOT NULL,  
+    payment DECIMAL(10,2) CHECK (payment >= 0) NOT NULL,  
+    CONSTRAINT fk_renting_customer FOREIGN KEY (customer_ID) 
+        REFERENCES hotel.customer(customer_ID) ON DELETE CASCADE,
+    CONSTRAINT fk_renting_employee FOREIGN KEY (employee_ID) 
+        REFERENCES hotel.employee(employee_ID) ON DELETE CASCADE,
+    CONSTRAINT fk_renting_room FOREIGN KEY (room_ID) 
+        REFERENCES hotel.room(room_ID) ON DELETE CASCADE,
+    CONSTRAINT fk_renting_booking FOREIGN KEY (booking_ID) 
+        REFERENCES hotel.booking(booking_ID) ON DELETE SET NULL
+);
+
+CREATE TABLE hotel.archive (
+    archive_ID SERIAL PRIMARY KEY,  
+    booking_ID INT NULL,  
+    renting_ID INT NULL, 
+    room_ID INT NOT NULL,  
+    hotel_ID INT NOT NULL,  
+    customer_ID INT NOT NULL,  
+    CONSTRAINT fk_archive_booking FOREIGN KEY (booking_ID) 
+        REFERENCES hotel.booking(booking_ID) ON DELETE SET NULL,
+    CONSTRAINT fk_archive_renting FOREIGN KEY (renting_ID) 
+        REFERENCES hotel.renting(renting_ID) ON DELETE SET NULL,
+    CONSTRAINT fk_archive_room FOREIGN KEY (room_ID) 
+        REFERENCES hotel.room(room_ID) ON DELETE SET NULL,
+    CONSTRAINT fk_archive_hotel FOREIGN KEY (hotel_ID) 
+        REFERENCES hotel.hotel(hotel_ID) ON DELETE SET NULL,
+    CONSTRAINT fk_archive_customer FOREIGN KEY (customer_ID) 
+        REFERENCES hotel.customer(customer_ID) ON DELETE SET NULL
+);
+
+CREATE TABLE hotel.managed_by (
+    hotel_ID INT PRIMARY KEY,  
+    employee_ID INT UNIQUE NOT NULL,  
+    FOREIGN KEY (hotel_ID) REFERENCES hotel.hotel(hotel_ID) ON DELETE CASCADE,
+    FOREIGN KEY (employee_ID) REFERENCES hotel.employee(employee_ID) ON DELETE CASCADE
+);
+
+CREATE TABLE hotel.get_archived (
+    archive_ID INT PRIMARY KEY,  
+    booking_ID INT NULL,  
+    renting_ID INT NULL,  
+    FOREIGN KEY (archive_ID) REFERENCES hotel.archive(archive_ID) ON DELETE CASCADE,
+    FOREIGN KEY (booking_ID) REFERENCES hotel.booking(booking_ID) ON DELETE SET NULL,
+    FOREIGN KEY (renting_ID) REFERENCES hotel.renting(renting_ID) ON DELETE SET NULL,
+    CONSTRAINT chk_archive_booking_or_renting CHECK (
+        (booking_ID IS NOT NULL) OR (renting_ID IS NOT NULL)
+    )
+);
+
