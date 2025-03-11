@@ -1,0 +1,14 @@
+1. Index on room.availability_status for fast room search. This index will speed up searches for available rooms when customers filter by room status. So, instead of scanning all rooms, PostgreSQL will quickly locate available rooms using the index.
+
+CREATE INDEX idx_room_availability 
+ON hotel.room (availability_status);
+
+2. Index on bookings.customer_id for faster booking lookups. This index will speed up queries that retrieve a customer's bookings. Without the index, PostgreSQL scans the entire booking table for matching customers and with the index, it directly finds relevant records.
+
+CREATE INDEX idx_bookings_customer 
+ON hotel.booking (customer_id);
+
+3. This is a composite index on bookings.room_id, start_date, end_date for faster booking conflicts and availability checks. This index optimizes queries that check room availability and prevent double bookings. The composite index helps quickly locate overlapping bookings. 
+
+CREATE INDEX idx_booking_conflicts 
+ON hotel.booking (room_id, start_date, end_date);
