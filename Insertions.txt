@@ -925,6 +925,7 @@ INSERT INTO hotel.booking (customer_ID, room_ID, start_date, end_date, status) V
 (9, 97, '2024-08-14', '2024-08-20', 'confirmed'),
 (10, 98, '2024-09-05', '2024-09-10', 'confirmed');
 
+<<<<<<< Updated upstream
 INSERT INTO hotel.position (position_title, salary) VALUES 
 ('Receptionist', 40000),
 ('Cleaner', 30000),
@@ -1060,4 +1061,6 @@ INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES
 (226, 'TV'),
 (141, 'Balcony');
 
+=======
+>>>>>>> Stashed changes
 
