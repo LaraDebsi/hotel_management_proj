@@ -20,3 +20,92 @@ hotel_id		name		total_bookings
 8		"Royal Executive"		1
 
 
+
+2. Real-Time Room Availability Query
+
+QUERY:
+
+SELECT r.room_id, r.room_number, h.name, r.price
+FROM hotel.room r
+JOIN hotel.hotel h ON r.hotel_id = h.hotel_id
+WHERE r.room_id NOT IN (
+    SELECT room_id FROM hotel.booking WHERE NOW() BETWEEN start_date AND end_date
+) AND r.availability_status = 'available';
+
+ANSWER:
+
+A sample of answers:
+
+"room_id"	"room_number"	      "name"	                    "price"
+94	          94	          "Royal Suites Downtown"	    387.90
+95	          95	          "Royal Suites Downtown"	    189.05
+96	          96	          "Royal Suites Downtown"	    367.91
+97	          97	          "Royal Suites Downtown"	    303.63
+98	          98	          "Royal Gardens"	            346.91
+99	          99	          "Royal Gardens"	            337.61
+100	         100	          "Royal Gardens"	            365.49
+101	         101	          "Royal Gardens"	            152.28
+102	         102	          "Royal Lakeview"	            327.26
+103	         103	          "Royal Lakeview"	            449.39
+
+
+3. Nested Query: Find Hotels with the Highest Revenue
+
+QUERY:
+
+SELECT h.hotel_id, h.name, total_revenue
+FROM hotel.hotel h
+JOIN (
+    SELECT r.hotel_id, 
+           SUM(r.price * CAST((b.end_date - b.start_date) AS INTEGER)) AS total_revenue
+    FROM hotel.room r
+    JOIN hotel.booking b ON r.room_id = b.room_id
+    GROUP BY r.hotel_id
+) AS revenue_per_hotel ON h.hotel_id = revenue_per_hotel.hotel_id
+ORDER BY total_revenue DESC
+LIMIT 5;
+
+
+ANSWER:
+
+hotel_id 		name 		       total_revenue
+34	          "Coastal Palm Hotel"	         231398.91
+20	          "Metropolitan Central"	 187000.96
+18	          "Metropolitan Towers"	         154268.20
+48	             "Prestige Luxe"	         100400.00
+7	          "Royal Downtown Suites"	  98537.58
+
+
+4.Recommend the Best Room (with Room Number and Amenities) for a Frequent Customer
+
+
+QUERY:
+SELECT r.room_id, r.room_number, r.capacity AS room_type, r.price, 
+       CASE 
+           WHEN COUNT(ra.amenity) > 0 THEN STRING_AGG(ra.amenity, ', ')
+           ELSE 'No amenities'
+       END AS amenities, 
+       COUNT(b.booking_id) AS total_bookings
+FROM hotel.room r
+JOIN hotel.booking b ON r.room_id = b.room_id
+LEFT JOIN hotel.room_amenities ra ON r.room_id = ra.room_id
+WHERE b.customer_id = (
+    SELECT customer_id 
+    FROM hotel.booking 
+    GROUP BY customer_id 
+    ORDER BY COUNT(booking_id) DESC 
+    LIMIT 1
+)
+GROUP BY r.room_id, r.room_number, r.capacity, r.price
+ORDER BY total_bookings DESC
+LIMIT 3;
+
+
+ANSWER:
+room_id room_number	room_type	price	    amenities	                      total_bookings
+94	 94	        "double"	387.90	    "Jacuzzi, Mini-Fridge, Smart TV"   	   3
+220	 220	        "double"	491.30	    "Jacuzzi, Mini-Fridge, Work Desk"	   3
+221	 221	         "suite"	223.62	    "Air Conditioning, Smart TV, Wi-Fi"	   3
+
+
+
