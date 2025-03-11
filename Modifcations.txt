@@ -1,0 +1,59 @@
+INSERTION:
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) 
+VALUES (1, 101, 150.00, 'double', TRUE, NULL, 'sea', 'available');
+
+DELETION:
+
+DELETE FROM hotel.booking 
+WHERE booking_ID = 5;
+
+UPDATE:
+
+UPDATE hotel.room 
+SET price = 180.00 
+WHERE room_ID = 1;
+
+TRIGGERS:
+
+1. This trigger ensures that a room cannot be booked if it is already booked or rented
+
+CREATE OR REPLACE FUNCTION hotel.prevent_overbooking() 
+RETURNS TRIGGER AS $$
+BEGIN
+    IF EXISTS (
+        SELECT 1 
+        FROM hotel.room 
+        WHERE room_ID = NEW.room_ID 
+        AND availability_status IN ('booked', 'rented')
+    ) THEN
+        RAISE EXCEPTION 'Room is already booked or rented. Cannot book again.';
+    END IF;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_prevent_overbooking
+BEFORE INSERT ON hotel.booking
+FOR EACH ROW 
+EXECUTE FUNCTION hotel.prevent_overbooking();
+
+2. This trigger automatically updates the availability_status of a room from 'booked' to 'rented' when a customer checks in.
+
+CREATE OR REPLACE FUNCTION hotel.update_room_status_on_checkin() 
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE hotel.room 
+    SET availability_status = 'rented' 
+    WHERE room_ID = NEW.room_ID;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_update_room_status
+AFTER INSERT ON hotel.renting
+FOR EACH ROW 
+EXECUTE FUNCTION hotel.update_room_status_on_checkin();
+
