@@ -1,1 +1,22 @@
+1. Aggregation Query: Find the most popular hotels (by bookings)
+
+QUERY:
+
+SELECT h.hotel_id, h.hotel_name, COUNT(b.booking_id) AS total_bookings
+FROM hotels h
+JOIN rooms r ON h.hotel_id = r.hotel_id
+JOIN bookings b ON r.room_id = b.room_id
+GROUP BY h.hotel_id, h.hotel_name
+ORDER BY total_bookings DESC
+LIMIT 5;
+
+ANSWER:
+
+hotel_id		name		total_bookings
+2		"Royal Suites Downtown"		4
+19		"Metropolitan Elite"		1
+7		"Royal Downtown Suites"		1
+18		"Metropolitan Towers"		1
+8		"Royal Executive"		1
+
 
