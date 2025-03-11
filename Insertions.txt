@@ -924,3 +924,32 @@ INSERT INTO hotel.booking (customer_ID, room_ID, start_date, end_date, status) V
 (8, 96, '2024-07-01', '2024-07-07', 'cancelled'),
 (9, 97, '2024-08-14', '2024-08-20', 'confirmed'),
 (10, 98, '2024-09-05', '2024-09-10', 'confirmed');
+
+INSERT INTO hotel.position (position_title, salary) VALUES 
+('Receptionist', 40000),
+('Cleaner', 30000),
+('Manager', 60000),
+('Chef', 45000),
+('Security', 35000);
+
+INSERT INTO hotel.customer (full_name, address, SSN_SIN, registration_date) VALUES
+('Anne Murray', 'USNV Terry FPO AP 41438', '075-11-3462','2024-04-01');
+('James Cordova', '5498 Rollins Ridges Diazton KS 34746', '337-72-9811','2025-01-26'),
+('Nicole Austin', '95716 Williams Roads Apt.930 Murphyville FL 09866', '110-44-3486','2023-10-01'),
+('Eric Oliver', '9142 Brian Center Suite 123 East Danielleview NM 89306', '197-03-8607','2024-09-01'),
+('Diana Macdonald', '949 Crystal Square Beckmouth VT 02448', '209-56-0620','2023-12-15'),
+('Diana Spears', '413 Catherine Rest Murphyland ND 40766', '720-77-4054','2024-03-11'),
+('Matthew Dixon', '55940 Pena Fields Karenfurt AL 64508', '669-62-4485','2024-12-23'),
+('Ashley Waller', '096 Jason Plains Phillipsport KY 97399', '421-51-8688','2024-11-24'), 
+('Christopher Carter', '12245 Phyllis Walk Suite 729 Donnaborough KS 05747', '181-44-8706','2023-07-29'),
+('Justin Robinson', '95589 Jenkins Wall Rubiofort OH 41345', '822-59-4168','2024-08-18'),
+('Alexis Estes', '4478 Craig Radial Katherinebury ME 22305', '8145-70-3743','2024-06-11'),
+('Barbara Caldwell', '78734 Sharon Hollow Suite 916 New Toddview CA 53952', '808-31-8125','2023-05-02'),
+('Tyler Brown', '427 Sherry Inlet Apt. 275 Randallberg NJ 28610', '457-97-7266','2024-07-17'),
+('Jennifer Murphy', '18612 Brooks Summit Apt. 639 Vegaton DE 78150', '510-01-6088','2024-08-07'),
+('Stephanie Swanson', '3310 Dennis Knolls Apt. 071 Yuburgh NY 98430', '025-88-5368','2024-08-03'),
+('Patrick Olsen', '32750 Bentley Groves New Staceyview AK 33213', '731-21-8118','2023-07-31'),
+('Timothy Oconnor', '69713 Thomas Mews Suite 930 Lake Claudiahaven MA 19811', '737-61-8417','2024-01-10'),
+('Jose Dickerson', 'USCGC Davis FPO AP 78851', '535-28-4966','2025-01-26'),
+('Joshua Ochoa', 'U19497 Abbott Viaduct Apt. 063 Leahtown IL 45742', '362-01-3799','2025-02-01'),
+('Ruth Scott', 'U9376 Patrick Stravenue New Joann MA 83982', '070-49-2025','2023-06-12');
