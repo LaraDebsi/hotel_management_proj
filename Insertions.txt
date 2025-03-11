@@ -953,3 +953,111 @@ INSERT INTO hotel.customer (full_name, address, SSN_SIN, registration_date) VALU
 ('Jose Dickerson', 'USCGC Davis FPO AP 78851', '535-28-4966','2025-01-26'),
 ('Joshua Ochoa', 'U19497 Abbott Viaduct Apt. 063 Leahtown IL 45742', '362-01-3799','2025-02-01'),
 ('Ruth Scott', 'U9376 Patrick Stravenue New Joann MA 83982', '070-49-2025','2023-06-12');
+
+
+
+INSERT INTO hotel.employee (hotel_ID, full_name, address, SSN_SIN, role_ID) VALUES 
+
+(1, 'Deborah Wade', '941 Baker Turnpike Suite 550 Franklinburgh, UT 34894', '752-34-3035', 
+     (SELECT role_ID FROM hotel.position WHERE position_title = 'Chef' LIMIT 1)),
+
+(1, 'Richard Jackson', '08375 Santiago Creek Johnsonburgh, DE 98400', '289-49-4788', 
+        (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
+
+(1, 'Ronnie Estrada', '123 Cole Fort Suite 074 Kimberlyton, VA 38670', '125-44-2269', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Chef' LIMIT 1)),
+
+(1, 'Angelica Soto', '40378 Kristina Via Karenfurt, LA 49654', '514-36-4907', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Chef' LIMIT 1)),
+(1, 'Mrs. Angela Hill DDS', '7443 Gerald Walks Suite 166 Lake Amyfurt, UT 04680', '790-24-2017', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1)),
+
+(1, 'Brian Wright', '90632 Lee Greens Apt. 807 Jillview, UT 40344', '057-82-7222', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Manager' LIMIT 1)),
+
+(1, 'Mark Allen', '8802 Edward Mews Apt. 599 Mendezville, CA 82784', '038-38-9311', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Manager' LIMIT 1)),
+
+(1, 'Lori Sanchez', '55784 Bates Plains Apt. 199 Port Thomaston, HI 20485', '645-89-8626', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1)),
+
+(1, 'Eddie Walls', '49802 Pamela Ways East Pam, MO 59568', '503-52-3311', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
+
+(1, 'Tony Arias', '9801 Smith Manors Port Valerieport, DE 14998', '639-10-3111', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
+
+(1, 'Cheryl Zimmerman', '481 Bennett Underpass Nicolehaven, KS 34174', '391-12-4678', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Receptionist' LIMIT 1)),
+
+(1, 'Sherry Burns', 'USCGC Campbell FPO AE 45652', '251-11-5846', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1)),
+
+(1, 'Brandy Watkins', '206 Mueller Pine Apt. 499 Mathewsbury, AR 22450', '260-09-7092', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
+
+(1, 'Brandon Morton', '679 Porter Burgs Smithview, MO 73568', '795-49-9616', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Receptionist' LIMIT 1)),
+
+(1, 'Sandra White', '52740 Rebekah Curve Port Scott, CO 09965', '805-97-1622', 
+       (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1));
+	
+
+INSERT INTO hotel.booking (customer_ID, room_ID, start_date, end_date, status) VALUES 
+(16, 137, '2024-12-16', '2025-04-08', 'confirmed'),
+(16, 162, '2024-06-07', '2025-04-22', 'confirmed'),
+(6, 220, '2024-08-31', '2025-07-11', 'confirmed'),
+(18, 120, '2024-11-22', '2025-06-24', 'confirmed'),
+(17, 19, '2024-10-11', '2026-02-25', 'confirmed'),
+(7, 130, '2024-07-23', '2025-09-20', 'confirmed'),
+(6, 221, '2024-11-26', '2025-09-23', 'confirmed'),
+(6, 207, '2024-12-31', '2025-06-01', 'confirmed'),
+(16, 116, '2024-08-07', '2025-04-15', 'confirmed'),
+(20, 236, '2024-10-04', '2026-03-01', 'confirmed');
+
+INSERT INTO hotel.renting (customer_ID, employee_ID, room_ID, booking_ID, start_date, end_date, payment)VALUES
+
+(20, 10, 120, 11, '2025-03-10', '2025-03-11', 277.92),
+(15, 12, 116, 77,  '2025-03-10', '2025-03-11', 456.95),
+(6, 14, 162, 84, '2025-03-10', '2025-03-11', 388.80),
+(15, 13, 236, 85, '2025-03-10', '2025-03-11', 212.64),
+(9, 9, 207, 11,  '2025-03-10', '2025-03-11', 337.71);
+
+
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES
+(115, 'TV'),
+(123, 'TV'),
+(227, 'Room Service'),
+(130, 'WiFi'),
+(121, 'WiFi'),
+(152, 'TV'),
+(204, 'Air Conditioning'),
+(16, 'Balcony'),
+(132, 'Room Service'),
+(139, 'Mini Bar'),
+(224, 'Balcony'),
+(189, 'Mini Bar'),
+(19, 'TV'),
+(123, 'Room Service'),
+(29, 'Mini Bar'),
+(101, 'TV'),
+(99, 'WiFi'),
+(174, 'TV'),
+(241, 'WiFi'),
+(200, 'WiFi'),
+(156, 'Room Service'),
+(195, 'Mini Bar'),
+(35, 'Balcony'),
+(217, 'WiFi'),
+(232, 'WiFi'),
+(122, 'Balcony'),
+(25, 'Mini Bar'),
+(25, 'Balcony'),
+(240, 'TV'),
+(226, 'Mini Bar'),
+(149, 'Air Conditioning'),
+(205, 'TV'),
+(226, 'TV'),
+(141, 'Balcony');
+
+
