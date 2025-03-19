@@ -21,6 +21,10 @@ public class Employee {
     @JoinColumn(name = "hotel_ID", nullable = false)
     private Hotel hotel;
 
+    @ManyToOne
+    @JoinColumn(name = "role_ID", nullable = false)
+    private Position role;
+
     // Getters and Setters
     public Long getEmployeeId() { return employeeId; }
     public void setEmployeeId(Long employeeId) { this.employeeId = employeeId; }
@@ -36,4 +40,7 @@ public class Employee {
 
     public Hotel getHotel() { return hotel; }
     public void setHotel(Hotel hotel) { this.hotel = hotel; }
+
+    public Position getRole() { return role; }
+    public void setRole(Position role) { this.role = role; }
 }

@@ -1,39 +1,67 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "room", schema = "hotel")
 public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "room_ID")
+    private Long roomId;
 
+    @Column(name = "price", nullable = false)
     private Double price;
-    private Integer capacity;
-    private String amenities;
-    private Boolean seaView;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "capacity", nullable = false)
+    private RoomCapacity capacity;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "view_type", nullable = false)
+    private ViewType viewType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "availability_status", nullable = false)
+    private AvailabilityStatus availabilityStatus;
 
     @ManyToOne
-    @JoinColumn(name = "hotel_id", nullable = false)
-    private Hotel hotel; // Assuming you have a Hotel entity
+    @JoinColumn(name = "hotel_ID", nullable = false)
+    private Hotel hotel;
+
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    private List<RoomAmenities> amenities;
+
+    // Enum for capacity
+    public enum RoomCapacity { SINGLE, DOUBLE, SUITE }
+
+    // Enum for view type
+    public enum ViewType { SEA, MOUNTAIN, NONE }
+
+    // Enum for availability status
+    public enum AvailabilityStatus { AVAILABLE, BOOKED, RENTED, UNDER_MAINTENANCE }
 
     // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    
+    public Long getRoomId() { return roomId; }
+    public void setRoomId(Long roomId) { this.roomId = roomId; }
+
     public Double getPrice() { return price; }
     public void setPrice(Double price) { this.price = price; }
-    
-    public Integer getCapacity() { return capacity; }
-    public void setCapacity(Integer capacity) { this.capacity = capacity; }
-    
-    public String getAmenities() { return amenities; }
-    public void setAmenities(String amenities) { this.amenities = amenities; }
-    
-    public Boolean getSeaView() { return seaView; }
-    public void setSeaView(Boolean seaView) { this.seaView = seaView; }
+
+    public RoomCapacity getCapacity() { return capacity; }
+    public void setCapacity(RoomCapacity capacity) { this.capacity = capacity; }
+
+    public ViewType getViewType() { return viewType; }
+    public void setViewType(ViewType viewType) { this.viewType = viewType; }
+
+    public AvailabilityStatus getAvailabilityStatus() { return availabilityStatus; }
+    public void setAvailabilityStatus(AvailabilityStatus availabilityStatus) { this.availabilityStatus = availabilityStatus; }
 
     public Hotel getHotel() { return hotel; }
     public void setHotel(Hotel hotel) { this.hotel = hotel; }
+
+    public List<RoomAmenities> getAmenities() { return amenities; }
+    public void setAmenities(List<RoomAmenities> amenities) { this.amenities = amenities; }
 }

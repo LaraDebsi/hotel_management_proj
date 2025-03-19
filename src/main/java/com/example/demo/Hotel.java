@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -13,6 +16,10 @@ public class Hotel {
     private Long hotelId;
 
     private String name;
+
+    @Column(name = "category", nullable = false)
+    @Min(1)
+    @Max(5)
     private Integer category;
 
     @Column(name = "num_rooms")
@@ -24,6 +31,7 @@ public class Hotel {
     private String contactEmail;
 
     @Column(name = "contact_phone")
+    @Size(max = 20)
     private String contactPhone;
 
     private String address;

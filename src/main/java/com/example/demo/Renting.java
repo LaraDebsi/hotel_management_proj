@@ -4,32 +4,44 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "renting", schema = "hotel")
 public class Renting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "renting_ID")
     private Long id;
 
-    private Long customerId;
-    private Long roomId;
+    @ManyToOne
+    @JoinColumn(name = "customer_ID", nullable = false)
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "room_ID", nullable = false)
+    private Room room;
+
+    @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
+
+    @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
+
+    @Column(name = "payment", nullable = false)
     private Double payment;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id", nullable = false) // Foreign key reference
+    @JoinColumn(name = "employee_ID", nullable = false) // Foreign key reference
     private Employee employee;
-
 
     // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public Long getCustomerId() { return customerId; }
-    public void setCustomerId(Long customerId) { this.customerId = customerId; }
+    public Customer getCustomer() { return customer; }
+    public void setCustomer(Customer customer) { this.customer = customer; }
 
-    public Long getRoomId() { return roomId; }
-    public void setRoomId(Long roomId) { this.roomId = roomId; }
+    public Room getRoom() { return room; }
+    public void setRoom(Room room) { this.room = room; }
 
     public LocalDate getStartDate() { return startDate; }
     public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
@@ -37,9 +49,9 @@ public class Renting {
     public LocalDate getEndDate() { return endDate; }
     public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
 
-    public Employee getEmployee() {return employee; }
-    public void setEmployee(Employee employee) { this.employee = employee;}
+    public Employee getEmployee() { return employee; }
+    public void setEmployee(Employee employee) { this.employee = employee; }
 
     public Double getPayment() { return payment; }
-    public void setPayment(Double payment) {this.payment = payment; }
+    public void setPayment(Double payment) { this.payment = payment; }
 }

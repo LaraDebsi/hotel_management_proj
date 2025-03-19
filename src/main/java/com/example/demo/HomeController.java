@@ -19,9 +19,6 @@ public class HomeController {
     @Autowired
     private RentingService rentingService;
 
-    @Autowired
-    private PaymentService paymentService;
-
     // ✅ 1. Welcome message
     @GetMapping("/")
     public String home() {

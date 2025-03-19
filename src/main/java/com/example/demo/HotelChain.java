@@ -13,7 +13,9 @@ public class HotelChain {
     private Long hotelchainId;
 
     private String name;
-    private String co_address;
+
+    @Column(name = "co_address")
+    private String coAddress;
 
     @Column(name = "num_hotels")
     private Integer numHotels;
@@ -34,8 +36,8 @@ public class HotelChain {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public String getCo_address() { return co_address; }
-    public void setCo_address(String co_address) { this.co_address = co_address; }
+    public String getCoAddress() { return coAddress; }
+    public void setCoAddress(String coAddress) { this.coAddress = coAddress; }
 
     public Integer getNumHotels() { return numHotels; }
     public void setNumHotels(Integer numHotels) { this.numHotels = numHotels; }
