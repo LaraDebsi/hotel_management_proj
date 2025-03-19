@@ -31,11 +31,7 @@ public class Booking {
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
 
-    @Column(name = "extendable", nullable = false)
-    private Boolean extendable;
-
-    @Column(name = "payment", nullable = false)
-    private Double payment;
+    
 
     @Column(name = "booking_timestamp", updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime bookingTimestamp;
@@ -61,12 +57,6 @@ public class Booking {
 
     public BookingStatus getStatus() { return status; }
     public void setStatus(BookingStatus status) { this.status = status; }
-
-    public Double getPayment() { return payment; }
-    public void setPayment(Double payment) { this.payment = payment; }
-
-    public Boolean getExtendable() {return extendable;}
-    public void setExtendable(Boolean extendable) {this.extendable = extendable; }
 
     public LocalDateTime getBookingTimestamp() { return bookingTimestamp; }
 }
