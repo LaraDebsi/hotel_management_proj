@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.annotation.PostConstruct;
 
 import java.util.List;
 
@@ -18,6 +19,11 @@ public class HomeController {
 
     @Autowired
     private RentingService rentingService;
+
+    @PostConstruct
+    public void init() {
+    System.out.println("✅ HomeController Loaded. RoomService, BookingService, RentingService Injected!");
+}
 
     // ✅ 1. Welcome message
     @GetMapping("/")

@@ -34,14 +34,17 @@ public class Room {
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<RoomAmenities> amenities;
 
-    // Enum for capacity
-    public enum RoomCapacity { SINGLE, DOUBLE, SUITE }
-
     // Enum for view type
     public enum ViewType { SEA, MOUNTAIN, NONE }
 
     // Enum for availability status
-    public enum AvailabilityStatus { AVAILABLE, BOOKED, RENTED, UNDER_MAINTENANCE }
+    public enum AvailabilityStatus { available, booked, rented, under_maintenance }
+
+    public enum RoomCapacity {
+        SINGLE,  
+        DOUBLE, 
+        SUITE;
+    }
 
     // Getters and Setters
     public Long getRoomId() { return roomId; }
