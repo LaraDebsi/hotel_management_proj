@@ -20,6 +20,10 @@ public class Renting {
     @JoinColumn(name = "room_ID", nullable = false)
     private Room room;
 
+    @ManyToOne
+    @JoinColumn(name = "booking_ID", nullable = true)
+    private Booking booking;
+
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
@@ -42,6 +46,9 @@ public class Renting {
 
     public Room getRoom() { return room; }
     public void setRoom(Room room) { this.room = room; }
+
+    public Booking getBooking() { return booking; }
+    public void setBooking(Booking booking) { this.booking = booking; }
 
     public LocalDate getStartDate() { return startDate; }
     public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
