@@ -6,6 +6,9 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "hotel", schema = "hotel")
 public class Hotel {
@@ -38,9 +41,11 @@ public class Hotel {
 
     @ManyToOne
     @JoinColumn(name = "hotelchain_ID", nullable = false)
+    @JsonIgnore  
     private HotelChain hotelChain;
 
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    @JsonIgnore 
     private List<Room> rooms;
 
     // Getters and Setters
