@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 @Entity
@@ -14,6 +17,7 @@ public class Room {
 
     @ManyToOne
     @JoinColumn(name = "hotel_ID", nullable = false)
+    @JsonIgnore
     private Hotel hotel;
 
     @Column(name = "room_number", nullable = false, columnDefinition = "INT DEFAULT 1")

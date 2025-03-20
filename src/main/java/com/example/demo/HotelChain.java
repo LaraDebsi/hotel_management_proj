@@ -3,6 +3,8 @@ package com.example.demo;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "hotel_chain", schema = "hotel")
 public class HotelChain {
@@ -27,6 +29,7 @@ public class HotelChain {
     private String contactPhone;
 
     @OneToMany(mappedBy = "hotelChain", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Hotel> hotels;
 
     // Getters and Setters
