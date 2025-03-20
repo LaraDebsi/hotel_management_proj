@@ -1,8 +1,7 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
@@ -45,6 +44,7 @@ public class Room {
     private AvailabilityStatus availabilityStatus;
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<RoomAmenities> amenities;
 
     // Enum for view type
