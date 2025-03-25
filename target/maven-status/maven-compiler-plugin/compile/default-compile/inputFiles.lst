@@ -2,6 +2,7 @@
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingRequest.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingService.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/CorsConfig.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Customer.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/CustomerRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/DemoApplication.java

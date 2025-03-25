@@ -1,3 +1,4 @@
+com/example/demo/CorsConfig.class
 com/example/demo/RoomAmenitiesKey.class
 com/example/demo/HomeController.class
 com/example/demo/Position.class
@@ -21,5 +22,6 @@ com/example/demo/Hotel.class
 com/example/demo/BookingRequest.class
 com/example/demo/RentingRepository.class
 com/example/demo/CustomerRepository.class
+com/example/demo/CorsConfig$1.class
 com/example/demo/RoomService.class
 com/example/demo/Room$AvailabilityStatus.class

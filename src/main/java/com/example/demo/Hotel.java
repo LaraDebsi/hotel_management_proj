@@ -45,7 +45,7 @@ public class Hotel {
     private HotelChain hotelChain;
 
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
-    @JsonIgnore 
+    @JsonManagedReference
     private List<Room> rooms;
 
     // Getters and Setters
