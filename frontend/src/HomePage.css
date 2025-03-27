@@ -1,0 +1,107 @@
+/* HomePage.css */
+
+.homepage {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #2e2e2e;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 3rem 1rem;
+  }
+  
+  .homepage-header {
+    position: relative;
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    padding: 3rem 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* <-- darkness here */
+    z-index: 1;
+    border-radius: 8px;
+  }
+  
+  .header-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .header-content h1,
+  .header-content .subtitle {
+    color: white;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .role-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .role-toggle label {
+    margin: 0 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .quick-actions h2 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    color: #4f3b29;
+  }
+  
+  .actions-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .actions-list button {
+    background-color: #dfab7a;
+    font-weight: bold;
+    color: rgb(107, 75, 46);
+    border-color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .actions-list button:hover {
+    background-color: #dca16a;
+  }
+  
+  .info-banner {
+    margin-top: 6rem;
+    padding: 1rem;
+    background-color: #dfab7a34;
+    border-left: 6px solid #dfab7a;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .homepage-footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  

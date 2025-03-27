@@ -17,7 +17,7 @@ public class Room {
 
     @ManyToOne
     @JoinColumn(name = "hotel_ID", nullable = false)
-    @JsonBackReference
+    @JsonManagedReference
     private Hotel hotel;
 
     @Column(name = "room_number", nullable = false, columnDefinition = "INT DEFAULT 1")

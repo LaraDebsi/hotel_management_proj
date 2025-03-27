@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -45,7 +46,7 @@ public class Hotel {
     private HotelChain hotelChain;
 
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonBackReference
     private List<Room> rooms;
 
     // Getters and Setters
