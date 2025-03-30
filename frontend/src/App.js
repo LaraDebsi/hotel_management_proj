@@ -4,6 +4,11 @@ import Header from './Header';
 import HomePage from './pages/HomePage';
 import RoomSearch from './pages/RoomSearch';
 import BookingPage from './pages/BookingPage';
+import CheckInPage from './pages/CheckInPage';
+import EmployeeDashboard from './pages/EmployeeDashboard';
+import DirectRentPage from './pages/DirectRentPage';
+import ActiveRentingsPage from './pages/ActiveRentingsPage';
+import RentalHistoryPage from './pages/RentalHistoryPage';
 
 
 
@@ -26,6 +31,11 @@ function App() {
                 <Route path="/" element={<HomePage role={role} setRole={handleRoleChange} />} />
                 <Route path="/rooms" element={<RoomSearch />} />
                 <Route path="/booking" element={<BookingPage />} />
+                <Route path="/check-in" element={<CheckInPage />} />
+                <Route path="/manage" element={<EmployeeDashboard />} />
+                <Route path="/direct-rent" element={<DirectRentPage />} />
+                <Route path="/active-rentings" element={<ActiveRentingsPage />} />
+                <Route path="/rental-history" element={<RentalHistoryPage />} />
             </Routes>
         </Router>
     );

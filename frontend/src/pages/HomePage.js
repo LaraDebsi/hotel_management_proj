@@ -34,7 +34,7 @@ function HomePage({role, setRole}) {
 
           {role === 'employee' && (
             <>
-              <button onClick={() => navigate('/checkin')}>Check-in a Guest</button>
+              <button onClick={() => navigate('/check-in')}>Check-in a Guest</button>
               <button onClick={() => navigate('/manage')}>Manage</button>
               <button onClick={() => navigate('/analytics')}>View Reports</button>
             </>

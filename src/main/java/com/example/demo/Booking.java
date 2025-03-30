@@ -37,7 +37,7 @@ public class Booking {
     private LocalDateTime bookingTimestamp;
 
     // Enum for Booking Status
-    public enum BookingStatus { CONFIRMED, CANCELLED, CHECKED_IN }
+    public enum BookingStatus {confirmed, cancelled, checked_in}
 
     // Getters and Setters
     public Long getBookingId() { return bookingId; }

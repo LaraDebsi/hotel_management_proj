@@ -16,7 +16,7 @@ function Header({ role, setRole }) {
           </>
         ) : (
           <>
-            <Link to="/checkin" className="tab">Check-In</Link>
+            <Link to="/check-in" className="tab">Check-In</Link>
             <Link to="/manage" className="tab">Manage</Link>
             <Link to="/analytics" className="tab">Analytics</Link>
           </>

@@ -21,14 +21,7 @@ public class BookingService {
         Optional<Customer> customerOpt = customerRepository.findById(bookingRequest.getCustomerId());
         Optional<Room> roomOpt = roomRepository.findById(bookingRequest.getRoomId());
 
-        if (customerOpt.isEmpty() || roomOpt.isEmpty()) {
-            throw new IllegalArgumentException("Customer or Room not found");
-        }
-
-        // Validate start date is before end date
-        if (bookingRequest.getStartDate().isAfter(bookingRequest.getEndDate())) {
-            throw new IllegalArgumentException("Start date must be before end date");
-        }
+        System.out.println("📅 Booking dates received - Start: " + bookingRequest.getStartDate() + ", End: " + bookingRequest.getEndDate());
 
         // Create new Booking instance
         Booking booking = new Booking();
@@ -36,7 +29,7 @@ public class BookingService {
         booking.setRoom(roomOpt.get());
         booking.setStartDate(bookingRequest.getStartDate());
         booking.setEndDate(bookingRequest.getEndDate());
-        booking.setStatus(Booking.BookingStatus.CONFIRMED);
+        booking.setStatus(Booking.BookingStatus.confirmed);
 
         bookingRepository.save(booking);
         return true;

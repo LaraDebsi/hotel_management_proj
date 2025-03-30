@@ -1,0 +1,50 @@
+.rental-history-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #fffdf8;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  
+  .history-table th,
+  .history-table td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .history-table th {
+    background-color: #f5e3d7;
+    color: #5b3921;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .history-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .empty-message {
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+  }
+  
+
+
+  
+
+
+  

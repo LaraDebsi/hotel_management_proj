@@ -6,7 +6,7 @@ INSERT INTO hotel.hotel_chain (name, co_address, num_hotels, contact_email, cont
 ('Prestige Suites', '10 Skyline Dr, San Francisco, USA', 8, 'help@prestigesuites.com', '+1-415-555-5005');
 
 
-INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
+INSERT INTO hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
 
 -- Royal Resorts Hotels
 ('Royal Grand Toronto', 5, 100, 'Toronto', 'grand@royalresorts.com', '+1-416-555-1101', 1, '101 King St, Toronto'),
@@ -19,7 +19,7 @@ INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact
 ('Royal Executive', 5, 120, 'Ottawa', 'executive@royalresorts.com', '+1-613-555-1109', 1, '108 Rideau St, Ottawa');
 
 -- Metropolitan Hotels
-INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
+INSERT INTO hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
 ('Metropolitan Plaza', 3, 90, 'New York', 'plaza@metropolitanhotels.com', '+1-212-555-2101', 2, '300 5th Ave, New York'),
 ('Metropolitan Towers', 4, 75, 'New York', 'towers@metropolitanhotels.com', '+1-212-555-2102', 2, '301 5th Ave, New York'),
 ('Metropolitan Elite', 5, 110, 'Chicago', 'elite@metropolitanhotels.com', '+1-312-555-2103', 2, '302 Michigan Ave, Chicago'),
@@ -30,7 +30,7 @@ INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact
 ('Metropolitan Skyline', 5, 100, 'Washington DC', 'skyline@metropolitanhotels.com', '+1-202-555-2108', 2, '307 Constitution Ave, DC');
 
 -- Heritage Inns
-INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
+INSERT INTO hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
 ('Heritage Oxford Inn', 3, 60, 'London', 'oxford@heritageinns.com', '+44-20-555-3101', 3, '600 Kensington Rd, London'),
 ('Heritage Central', 2, 50, 'London', 'central@heritageinns.com', '+44-20-555-3102', 3, '601 Kensington Rd, London'),
 ('Heritage Manor', 4, 70, 'Manchester', 'manor@heritageinns.com', '+44-161-555-3103', 3, '602 Deansgate, Manchester'),
@@ -41,7 +41,7 @@ INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact
 ('Heritage Grand', 5, 110, 'Birmingham', 'grand@heritageinns.com', '+44-121-555-3108', 3, '607 Broad St, Birmingham');
 
 -- Coastal Retreats
-INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
+INSERT INTO hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
 ('Coastal Breeze Resort', 5, 120, 'Miami', 'breeze@coastalretreats.com', '+1-305-555-4101', 4, '400 Beach Rd, Miami'),
 ('Coastal Palm Hotel', 4, 85, 'Miami', 'palm@coastalretreats.com', '+1-305-555-4102', 4, '401 Ocean Dr, Miami'),
 ('Coastal Sunset Villas', 5, 110, 'Honolulu', 'sunset@coastalretreats.com', '+1-808-555-4103', 4, '402 Waikiki Beach, Honolulu'),
@@ -52,7 +52,7 @@ INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact
 ('Coastal White Sands', 5, 90, 'Key West', 'whitesands@coastalretreats.com', '+1-305-555-4108', 4, '407 Sunset Blvd, Key West');
 
 -- Prestige Suites
-INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
+INSERT INTO hotel (name, category, num_rooms, city, contact_email, contact_phone, hotelchain_ID, address) VALUES
 ('Prestige Skyline SF', 4, 85, 'San Francisco', 'skyline@prestigesuites.com', '+1-415-555-5101', 5, '500 Skyline Dr, San Francisco'),
 ('Prestige Bayview', 5, 100, 'San Francisco', 'bayview@prestigesuites.com', '+1-415-555-5102', 5, '501 Bay St, San Francisco'),
 ('Prestige Grand Suites', 5, 120, 'Los Angeles', 'grandsuites@prestigesuites.com', '+1-213-555-5103', 5, '502 Sunset Blvd, LA'),
@@ -63,349 +63,265 @@ INSERT INTO hotel.hotel (name, category, num_rooms, city, contact_email, contact
 ('Prestige Luxe', 5, 95, 'Las Vegas', 'luxe@prestigesuites.com', '+1-702-555-5108', 5, '507 Vegas Strip, Las Vegas');
 
 
--- Rooms for Royal Grand Toronto (Hotel 1)
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(1, 180.00, 'single', FALSE, NULL, 'mountain', 'available'),
-(1, 250.00, 'double', TRUE, NULL, 'sea', 'available'),
-(1, 400.00, 'suite', TRUE, NULL, 'mountain', 'available'),
-(1, 220.00, 'single', FALSE, NULL, 'sea', 'available'),
-(1, 280.00, 'double', TRUE, NULL, 'mountain', 'available');
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(1, 101, 180.00, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(1, 102, 250.00, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(1, 103, 400.00, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(1, 104, 220.00, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(1, 105, 280.00, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available');
 
--- Rooms for Metropolitan Plaza (Hotel 48)
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(48, 160.00, 'single', FALSE, NULL, 'sea', 'available'),
-(48, 230.00, 'double', TRUE, NULL, 'mountain', 'available'),
-(48, 390.00, 'suite', TRUE, NULL, 'sea', 'available'),
-(48, 200.00, 'single', FALSE, NULL, 'mountain', 'available'),
-(48, 270.00, 'double', TRUE, NULL, 'sea', 'available');
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(40, 101, 160.00, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(40, 102, 230.00, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(40, 103, 390.00, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(40, 104, 200.00, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(40, 105, 270.00, 'DOUBLE', TRUE, NULL, 'SEA', 'available');
 
--- Rooms for Heritage Oxford Inn (Hotel 17)
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(17, 150.00, 'single', FALSE, NULL, 'mountain', 'available'),
-(17, 210.00, 'double', TRUE, NULL, 'sea', 'available'),
-(17, 370.00, 'suite', TRUE, NULL, 'mountain', 'available'),
-(17, 190.00, 'single', FALSE, NULL, 'sea', 'available'),
-(17, 260.00, 'double', TRUE, NULL, 'mountain', 'available');
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(17, 101, 150.00, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(17, 102, 210.00, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(17, 103, 370.00, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(17, 104, 190.00, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(17, 105, 260.00, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available');
 
--- Rooms for Coastal Breeze Resort (Hotel 25)
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(25, 200.00, 'single', FALSE, NULL, 'sea', 'available'),
-(25, 270.00, 'double', TRUE, NULL, 'mountain', 'available'),
-(25, 420.00, 'suite', TRUE, NULL, 'sea', 'available'),
-(25, 210.00, 'single', FALSE, NULL, 'mountain', 'available'),
-(25, 290.00, 'double', TRUE, NULL, 'sea', 'available');
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(25, 101, 200.00, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(25, 102, 270.00, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(25, 103, 420.00, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(25, 104, 210.00, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(25, 105, 290.00, 'DOUBLE', TRUE, NULL, 'SEA', 'available');
 
--- Rooms for Prestige Skyline SF (Hotel 33)
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(33, 190.00, 'single', FALSE, NULL, 'mountain', 'available'),
-(33, 260.00, 'double', TRUE, NULL, 'sea', 'available'),
-(33, 410.00, 'suite', TRUE, NULL, 'mountain', 'available'),
-(33, 200.00, 'single', FALSE, NULL, 'sea', 'available'),
-(33, 280.00, 'double', TRUE, NULL, 'mountain', 'available');
-
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(2, 387.9, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(2, 189.05, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(2, 367.91, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(2, 303.63, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(3, 346.91, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(3, 337.61, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(3, 365.49, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(3, 152.28, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(4, 327.26, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(4, 449.39, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(4, 156.72, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(4, 341.85, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(5, 462.51, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(5, 190.67, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(5, 393.18, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(5, 215.31, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(6, 347.94, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(6, 251.88, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(6, 319.57, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(6, 499.24, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(7, 235.83, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(7, 256.52, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(7, 392.58, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(7, 339.21, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(8, 415.89, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(8, 298.27, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(8, 273.08, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(8, 281.44, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(18, 304.57, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(18, 408.69, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(18, 459.36, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(18, 243.25, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(19, 226.95, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(19, 393.13, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(19, 198.99, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(19, 221.22, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(20, 441.04, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(20, 228.24, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(20, 320.47, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(20, 266.2, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(21, 342.42, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(21, 440.79, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(21, 442.47, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(21, 473.85, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(22, 271.76, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(22, 454.04, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(22, 164.72, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(22, 331.51, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(23, 219.32, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(23, 453.03, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(23, 482.54, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(23, 307.8, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(24, 461.8, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(24, 462.07, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(24, 453.55, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(26, 150.75, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(26, 404.4, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(26, 340.69, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(27, 457.37, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(27, 412.28, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(27, 264.1, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(28, 245.63, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(28, 497.18, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(28, 208.59, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(29, 340.85, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(29, 483.93, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(29, 367.85, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(30, 159.41, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(30, 231.98, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(30, 359.33, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(31, 339.53, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(31, 371.59, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(31, 259.45, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(32, 261.1, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(32, 401.31, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(32, 248.9, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(34, 281.36, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(34, 434.8, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(34, 379.44, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(35, 180.25, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(35, 241.84, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(35, 235.6, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(36, 442.52, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(36, 173.98, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(36, 281.21, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(37, 176.78, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(37, 446.64, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(37, 330.64, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(38, 447.81, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(38, 167.68, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(38, 304.04, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(39, 460.99, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(39, 222.4, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(39, 377.04, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(40, 319.77, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(40, 290.29, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(40, 276.41, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(41, 234.62, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(41, 369.84, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(41, 469.49, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(42, 224.12, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(42, 209.83, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(42, 337.38, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(43, 361.97, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(43, 248.59, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(43, 223.42, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(44, 163.28, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(44, 408.4, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(44, 192.65, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(45, 358.6, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(45, 232.58, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(45, 185.7, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(46, 216.89, 'single', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(46, 288.07, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(46, 413.41, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(47, 461.47, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(47, 255.31, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(47, 150.25, 'suite', FALSE, NULL, 'sea', 'available');
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(33, 101, 190.00, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(33, 102, 260.00, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(33, 103, 410.00, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(33, 104, 200.00, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(33, 105, 280.00, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available');
 
 
 
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(2, 186.88, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(3, 172.76, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(4, 353.04, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(5, 327.55, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(6, 348.87, 'single', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(7, 179.43, 'single', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(8, 264.87, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(17, 285.42, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(18, 491.3, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(19, 223.62, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(20, 183.08, 'single', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(21, 455.16, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(22, 484.09, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(23, 489.34, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(24, 483.37, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(25, 499.02, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(26, 159.85, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(27, 334.3, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(28, 340.15, 'suite', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(29, 245.52, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(30, 467.16, 'double', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(31, 363.44, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(32, 235.13, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(33, 187.31, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(34, 451.07, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(35, 181.73, 'suite', FALSE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(36, 262.25, 'suite', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(37, 419.76, 'suite', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(38, 349.27, 'double', FALSE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(39, 346.34, 'double', TRUE, NULL, 'sea', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(40, 448.37, 'double', TRUE, NULL, 'mountain', 'available');
-INSERT INTO hotel.room (hotel_ID, price, capacity, extendable, damage, view_type, availability_status) VALUES
-(41, 207.18, 'double', FALSE, NULL, 'mountain', 'available');
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(2, 101, 387.90, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(2, 102, 189.05, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(2, 103, 367.91, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(2, 104, 303.63, 'SUITE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(3, 101, 346.91, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(3, 102, 337.61, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(3, 103, 365.49, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(3, 104, 152.28, 'DOUBLE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(4, 101, 327.26, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(4, 102, 449.39, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(4, 103, 156.72, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(4, 104, 341.85, 'SINGLE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(5, 101, 462.51, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(5, 102, 190.67, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(5, 103, 393.18, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(5, 104, 215.31, 'SUITE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(6, 101, 347.94, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(6, 102, 251.88, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(6, 103, 319.57, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(6, 104, 499.24, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(7, 101, 235.83, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(7, 102, 256.52, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(7, 103, 392.58, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(7, 104, 339.21, 'DOUBLE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(8, 101, 415.89, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(8, 102, 298.27, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(8, 103, 273.08, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(8, 104, 281.44, 'SINGLE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(18, 101, 304.57, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(18, 102, 408.69, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(18, 103, 459.36, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(18, 104, 243.25, 'SUITE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(19, 101, 226.95, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(19, 102, 393.13, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(19, 103, 198.99, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(19, 104, 221.22, 'SINGLE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(20, 101, 441.04, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(20, 102, 228.24, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(20, 103, 320.47, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(20, 104, 266.20, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(21, 101, 342.42, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(21, 102, 440.79, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(21, 103, 442.47, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(21, 104, 473.85, 'SINGLE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(22, 101, 271.76, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(22, 102, 454.04, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(22, 103, 164.72, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(22, 104, 331.51, 'SINGLE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(23, 101, 219.32, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(23, 102, 453.03, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(23, 103, 482.54, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(23, 104, 307.80, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(24, 101, 461.80, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(24, 102, 462.07, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(24, 103, 453.55, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(26, 101, 150.75, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(26, 102, 404.40, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(26, 103, 340.69, 'SUITE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(27, 101, 457.37, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(27, 102, 412.28, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(27, 103, 264.10, 'SUITE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(28, 101, 245.63, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(28, 102, 497.18, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(28, 103, 208.59, 'SINGLE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(29, 101, 340.85, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(29, 102, 483.93, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(29, 103, 367.85, 'DOUBLE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(30, 101, 159.41, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(30, 102, 231.98, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(30, 103, 359.33, 'SUITE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(31, 101, 339.53, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(31, 102, 371.59, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(31, 103, 259.45, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(32, 101, 261.10, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(32, 102, 401.31, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(32, 103, 248.90, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(34, 101, 281.36, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(34, 102, 434.80, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(34, 103, 379.44, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(35, 101, 180.25, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(35, 102, 241.84, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(35, 103, 235.60, 'DOUBLE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(36, 101, 442.52, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(36, 102, 173.98, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(36, 103, 281.21, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(37, 101, 176.78, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(37, 102, 446.64, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(37, 103, 330.64, 'SINGLE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(12, 201, 234.62, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(12, 219, 369.84, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(12, 222, 469.49, 'DOUBLE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(27, 208, 224.12, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(27, 211, 209.83, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(27, 232, 337.38, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(9, 245, 361.97, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(9, 248, 248.59, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(9, 249, 223.42, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(31, 212, 163.28, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(31, 214, 408.40, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(31, 229, 192.65, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(19, 250, 358.60, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(19, 253, 232.58, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(19, 257, 185.70, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(36, 275, 216.89, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(36, 278, 288.07, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(36, 281, 413.41, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(5, 291, 461.47, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(5, 294, 255.31, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(5, 297, 150.25, 'SUITE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(38, 101, 447.81, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(38, 102, 167.68, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(38, 103, 304.04, 'SUITE', FALSE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(39, 101, 460.99, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(39, 102, 222.40, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(39, 103, 377.04, 'SUITE', TRUE, NULL, 'SEA', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(40, 106, 319.77, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(40, 107, 290.29, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(40, 108, 276.41, 'SINGLE', TRUE, NULL, 'MOUNTAIN', 'available');
+
+INSERT INTO hotel.room (hotel_ID, room_number, price, capacity, extendable, damage, view_type, availability_status) VALUES
+(13, 110, 186.88, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(39, 118, 172.76, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(4, 125, 353.04, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(33, 127, 327.55, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(28, 131, 348.87, 'SINGLE', FALSE, NULL, 'SEA', 'available'),
+(7, 145, 179.43, 'SINGLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(21, 138, 264.87, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(36, 147, 285.42, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(17, 149, 491.30, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(9, 154, 223.62, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(11, 158, 183.08, 'SINGLE', TRUE, NULL, 'SEA', 'available'),
+(14, 161, 455.16, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(25, 166, 484.09, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(22, 172, 489.34, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(31, 176, 483.37, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(8, 179, 499.02, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(3, 182, 159.85, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(19, 185, 334.30, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(5, 189, 340.15, 'SUITE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(24, 193, 245.52, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(20, 196, 467.16, 'DOUBLE', FALSE, NULL, 'SEA', 'available'),
+(6, 201, 363.44, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(26, 207, 235.13, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(12, 211, 187.31, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(29, 215, 451.07, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(32, 222, 181.73, 'SUITE', FALSE, NULL, 'SEA', 'available'),
+(1, 227, 262.25, 'SUITE', TRUE, NULL, 'SEA', 'available'),
+(18, 233, 419.76, 'SUITE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(35, 239, 349.27, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available'),
+(2, 244, 346.34, 'DOUBLE', TRUE, NULL, 'SEA', 'available'),
+(30, 253, 448.37, 'DOUBLE', TRUE, NULL, 'MOUNTAIN', 'available'),
+(15, 259, 207.18, 'DOUBLE', FALSE, NULL, 'MOUNTAIN', 'available');
+
 
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (94, 'Mini-Fridge');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (94, 'Jacuzzi');
@@ -485,129 +401,243 @@ INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (114, 'Jacuzzi');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (114, 'Coffee Maker');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (114, 'Mini-Fridge');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (115, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (115, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (116, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (116, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (117, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (117, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (117, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (117, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (118, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (118, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (118, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (118, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (118, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (119, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (119, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (119, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (120, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (120, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (121, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (121, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (121, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (122, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (122, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (123, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (123, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (123, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (124, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (124, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (124, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (124, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (124, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (125, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (125, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (126, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (126, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (127, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (127, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (128, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (128, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (128, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (128, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (129, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (129, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (130, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (130, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (130, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (130, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (130, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (131, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (131, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (131, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (132, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (132, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (132, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (133, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (133, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (133, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (133, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (134, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (134, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (135, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (135, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (135, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (136, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (136, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (137, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (137, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (137, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (137, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (137, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (138, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (138, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (139, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (139, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (139, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (139, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (139, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (140, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (140, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (140, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (141, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (141, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (141, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (142, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (142, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (143, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (143, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (144, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (144, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (145, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (145, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (145, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (145, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (146, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (146, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (146, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (146, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (147, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (147, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (147, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (147, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (148, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (148, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (148, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (148, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (149, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (149, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (149, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (149, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (150, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (150, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (150, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (151, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (151, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (153, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (7, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (7, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (7, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (7, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (7, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (8, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (8, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (8, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (8, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (9, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (9, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (9, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (9, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (10, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (10, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (10, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (10, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (11, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (11, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (17, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (17, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (17, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (17, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (18, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (18, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (18, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (18, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (18, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (19, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (19, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (19, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (19, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (19, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (20, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (20, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (20, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (20, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (21, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (21, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (21, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (22, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (22, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (22, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (22, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (22, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (23, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (23, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (23, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (24, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (24, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (24, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (24, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (25, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (25, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (25, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (26, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (26, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (26, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (27, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (27, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (27, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (28, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (28, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (28, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (29, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (29, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (29, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (30, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (30, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (30, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (31, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (31, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (31, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (32, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (32, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (32, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (33, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (33, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (33, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (34, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (34, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (34, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (34, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (35, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (35, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (35, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (36, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (36, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (36, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (37, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (37, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (37, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (38, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (38, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (38, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (39, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (39, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (39, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (40, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (40, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (40, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (41, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (41, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (41, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (42, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (42, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (42, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (43, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (43, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (44, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (44, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (44, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (44, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (45, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (45, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (45, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (46, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (46, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (46, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (47, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (47, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (47, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (48, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (48, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (49, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (49, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (49, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (50, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (50, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (51, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (51, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (52, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (52, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (53, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (53, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (54, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (54, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (54, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (55, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (55, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (56, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (56, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (56, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (57, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (57, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (57, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (57, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (57, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (58, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (58, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (58, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (58, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (58, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (59, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (59, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (59, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (59, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (60, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (60, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (60, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (61, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (61, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (61, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (61, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (62, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (62, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (62, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (63, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (63, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (63, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (63, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (63, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (64, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (64, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (65, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (65, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (65, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (65, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (66, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (66, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (67, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (67, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (68, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (68, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (68, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (69, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (69, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (70, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (70, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (70, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (70, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (71, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (71, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (71, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (71, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (72, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (72, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (73, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (73, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (73, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (73, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (74, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (74, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (74, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (74, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (74, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (75, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (75, 'King-Size Bed');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (76, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (76, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (77, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (77, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (77, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (77, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (77, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (78, 'Flat-screen TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (78, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (78, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (79, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (79, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (79, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (79, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (79, 'Balcony');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (150, 'Jacuzzi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (150, 'Work Desk');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (150, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (151, 'Coffee Maker');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (151, 'Wi-Fi');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (151, 'Air Conditioning');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'Mini-Bar');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'Mini-Fridge');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (152, 'Flat-screen TV');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (153, 'Wi-Fi');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (153, 'Balcony');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (153, 'Coffee Maker');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (153, 'Smart TV');
+INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (153, 'Air Conditioning');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (154, 'Flat-screen TV');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (154, 'Jacuzzi');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (154, 'Air Conditioning');
@@ -783,139 +813,7 @@ INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (205, 'Wi-Fi');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (205, 'Mini-Fridge');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (205, 'Balcony');
 INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (205, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (206, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (206, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (207, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (207, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (208, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (208, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (208, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (209, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (209, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (210, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (210, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (210, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (210, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (211, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (211, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (211, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (211, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (212, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (212, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (213, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (213, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (213, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (213, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (214, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (214, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (214, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (214, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (214, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (215, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (215, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (216, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (216, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (217, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (217, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (217, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (217, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (217, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (218, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (218, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (218, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (219, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (219, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (219, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (219, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (219, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (220, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (220, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (220, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (221, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (221, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (221, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (222, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (222, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (222, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (222, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (223, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (223, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (223, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (223, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (223, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (224, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (224, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (224, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (224, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (224, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (225, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (225, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (225, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (226, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (226, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (226, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (226, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (226, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (227, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (227, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (227, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (227, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (228, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (228, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (228, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (228, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (229, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (229, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (229, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (229, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (230, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (230, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (230, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (231, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (231, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (231, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (232, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (232, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (232, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (233, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (233, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (234, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (234, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (234, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (234, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (235, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (235, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (236, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (236, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (236, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (237, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (237, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (237, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (238, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (238, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (238, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (238, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (238, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (239, 'Mini-Fridge');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (239, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (240, 'Jacuzzi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (240, 'Air Conditioning');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (240, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (240, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (240, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (241, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (241, 'Flat-screen TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (241, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (241, 'Wi-Fi');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (242, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (242, 'Mini-Bar');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (242, 'King-Size Bed');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (242, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (242, 'Work Desk');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (243, 'Coffee Maker');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (243, 'Balcony');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (243, 'Smart TV');
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES (243, 'Jacuzzi');
+
 
 
 INSERT INTO hotel.booking (customer_ID, room_ID, start_date, end_date, status) VALUES
@@ -962,104 +860,67 @@ INSERT INTO hotel.employee (hotel_ID, full_name, address, SSN_SIN, role_ID) VALU
 (1, 'Deborah Wade', '941 Baker Turnpike Suite 550 Franklinburgh, UT 34894', '752-34-3035', 
      (SELECT role_ID FROM hotel.position WHERE position_title = 'Chef' LIMIT 1)),
 
-(1, 'Richard Jackson', '08375 Santiago Creek Johnsonburgh, DE 98400', '289-49-4788', 
+(2, 'Richard Jackson', '08375 Santiago Creek Johnsonburgh, DE 98400', '289-49-4788', 
         (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
 
-(1, 'Ronnie Estrada', '123 Cole Fort Suite 074 Kimberlyton, VA 38670', '125-44-2269', 
+(3, 'Ronnie Estrada', '123 Cole Fort Suite 074 Kimberlyton, VA 38670', '125-44-2269', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Chef' LIMIT 1)),
 
-(1, 'Angelica Soto', '40378 Kristina Via Karenfurt, LA 49654', '514-36-4907', 
+(4, 'Angelica Soto', '40378 Kristina Via Karenfurt, LA 49654', '514-36-4907', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Chef' LIMIT 1)),
-(1, 'Mrs. Angela Hill DDS', '7443 Gerald Walks Suite 166 Lake Amyfurt, UT 04680', '790-24-2017', 
+(5, 'Mrs. Angela Hill DDS', '7443 Gerald Walks Suite 166 Lake Amyfurt, UT 04680', '790-24-2017', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1)),
 
-(1, 'Brian Wright', '90632 Lee Greens Apt. 807 Jillview, UT 40344', '057-82-7222', 
+(6, 'Brian Wright', '90632 Lee Greens Apt. 807 Jillview, UT 40344', '057-82-7222', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Manager' LIMIT 1)),
 
-(1, 'Mark Allen', '8802 Edward Mews Apt. 599 Mendezville, CA 82784', '038-38-9311', 
+(7, 'Mark Allen', '8802 Edward Mews Apt. 599 Mendezville, CA 82784', '038-38-9311', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Manager' LIMIT 1)),
 
-(1, 'Lori Sanchez', '55784 Bates Plains Apt. 199 Port Thomaston, HI 20485', '645-89-8626', 
+(8, 'Lori Sanchez', '55784 Bates Plains Apt. 199 Port Thomaston, HI 20485', '645-89-8626', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1)),
 
-(1, 'Eddie Walls', '49802 Pamela Ways East Pam, MO 59568', '503-52-3311', 
+(9, 'Eddie Walls', '49802 Pamela Ways East Pam, MO 59568', '503-52-3311', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
 
-(1, 'Tony Arias', '9801 Smith Manors Port Valerieport, DE 14998', '639-10-3111', 
+(10, 'Tony Arias', '9801 Smith Manors Port Valerieport, DE 14998', '639-10-3111', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
 
-(1, 'Cheryl Zimmerman', '481 Bennett Underpass Nicolehaven, KS 34174', '391-12-4678', 
+(11, 'Cheryl Zimmerman', '481 Bennett Underpass Nicolehaven, KS 34174', '391-12-4678', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Receptionist' LIMIT 1)),
 
-(1, 'Sherry Burns', 'USCGC Campbell FPO AE 45652', '251-11-5846', 
+(12, 'Sherry Burns', 'USCGC Campbell FPO AE 45652', '251-11-5846', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1)),
 
-(1, 'Brandy Watkins', '206 Mueller Pine Apt. 499 Mathewsbury, AR 22450', '260-09-7092', 
+(13, 'Brandy Watkins', '206 Mueller Pine Apt. 499 Mathewsbury, AR 22450', '260-09-7092', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Security' LIMIT 1)),
 
-(1, 'Brandon Morton', '679 Porter Burgs Smithview, MO 73568', '795-49-9616', 
+(14, 'Brandon Morton', '679 Porter Burgs Smithview, MO 73568', '795-49-9616', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Receptionist' LIMIT 1)),
 
-(1, 'Sandra White', '52740 Rebekah Curve Port Scott, CO 09965', '805-97-1622', 
+(15, 'Sandra White', '52740 Rebekah Curve Port Scott, CO 09965', '805-97-1622', 
        (SELECT role_ID FROM hotel.position WHERE position_title = 'Cleaner' LIMIT 1));
 	
 
 INSERT INTO hotel.booking (customer_ID, room_ID, start_date, end_date, status) VALUES 
-(16, 137, '2024-12-16', '2025-04-08', 'confirmed'),
+(16, 144, '2024-12-16', '2025-04-08', 'confirmed'),
 (16, 162, '2024-06-07', '2025-04-22', 'confirmed'),
-(6, 220, '2024-08-31', '2025-07-11', 'confirmed'),
+(6, 205, '2024-08-31', '2025-07-11', 'confirmed'),
 (18, 120, '2024-11-22', '2025-06-24', 'confirmed'),
 (17, 19, '2024-10-11', '2026-02-25', 'confirmed'),
-(7, 130, '2024-07-23', '2025-09-20', 'confirmed'),
-(6, 221, '2024-11-26', '2025-09-23', 'confirmed'),
-(6, 207, '2024-12-31', '2025-06-01', 'confirmed'),
+(7, 148, '2024-07-23', '2025-09-20', 'confirmed'),
+(6, 203, '2024-11-26', '2025-09-23', 'confirmed'),
+(6, 202, '2024-12-31', '2025-06-01', 'confirmed'),
 (16, 116, '2024-08-07', '2025-04-15', 'confirmed'),
-(20, 236, '2024-10-04', '2026-03-01', 'confirmed');
+(20, 201, '2024-10-04', '2026-03-01', 'confirmed');
 
 INSERT INTO hotel.renting (customer_ID, employee_ID, room_ID, booking_ID, start_date, end_date, payment)VALUES
 
-(20, 10, 120, 11, '2025-03-10', '2025-03-11', 277.92),
-(15, 12, 116, 77,  '2025-03-10', '2025-03-11', 456.95),
-(6, 14, 162, 84, '2025-03-10', '2025-03-11', 388.80),
-(15, 13, 236, 85, '2025-03-10', '2025-03-11', 212.64),
-(9, 9, 207, 11,  '2025-03-10', '2025-03-11', 337.71);
-
-
-INSERT INTO hotel.room_amenities (room_ID, amenity) VALUES
-(115, 'TV'),
-(123, 'TV'),
-(227, 'Room Service'),
-(130, 'WiFi'),
-(121, 'WiFi'),
-(152, 'TV'),
-(204, 'Air Conditioning'),
-(16, 'Balcony'),
-(132, 'Room Service'),
-(139, 'Mini Bar'),
-(224, 'Balcony'),
-(189, 'Mini Bar'),
-(19, 'TV'),
-(123, 'Room Service'),
-(29, 'Mini Bar'),
-(101, 'TV'),
-(99, 'WiFi'),
-(174, 'TV'),
-(241, 'WiFi'),
-(200, 'WiFi'),
-(156, 'Room Service'),
-(195, 'Mini Bar'),
-(35, 'Balcony'),
-(217, 'WiFi'),
-(232, 'WiFi'),
-(122, 'Balcony'),
-(25, 'Mini Bar'),
-(25, 'Balcony'),
-(240, 'TV'),
-(226, 'Mini Bar'),
-(149, 'Air Conditioning'),
-(205, 'TV'),
-(226, 'TV'),
-(141, 'Balcony');
+(20, 10, 120, 10, '2025-03-10', '2025-03-11', 277.92),
+(15, 12, 116, 7,  '2025-03-10', '2025-03-11', 456.95),
+(6, 14, 162, 8, '2025-03-10', '2025-03-11', 388.80),
+(15, 13, 203, 70, '2025-03-10', '2025-03-11', 212.64),
+(9, 9, 201, 10,  '2025-03-10', '2025-03-11', 337.71);
 
 =======
 >>>>>>> Stashed changes

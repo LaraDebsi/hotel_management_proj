@@ -1,4 +1,8 @@
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Archive.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/ArchiveDTO.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/ArchiveRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Booking.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingDTO.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingRequest.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingService.java
@@ -6,6 +10,7 @@
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Customer.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/CustomerRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/DemoApplication.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/DirectRentRequest.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Employee.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/EmployeeRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/HomeController.java
@@ -13,6 +18,7 @@
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/HotelChain.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Position.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Renting.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/RentingDTO.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/RentingRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/RentingService.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Room.java

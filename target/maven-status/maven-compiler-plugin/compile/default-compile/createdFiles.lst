@@ -20,6 +20,7 @@ com/example/demo/BookingRepository.class
 com/example/demo/RoomAmenities.class
 com/example/demo/Hotel.class
 com/example/demo/BookingRequest.class
+com/example/demo/BookingDTO.class
 com/example/demo/RentingRepository.class
 com/example/demo/CustomerRepository.class
 com/example/demo/CorsConfig$1.class

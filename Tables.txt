@@ -15,7 +15,7 @@ CREATE TABLE Hotel (
     city VARCHAR(100) NOT NULL,
     contact_email VARCHAR(255) UNIQUE NOT NULL,
     contact_phone VARCHAR(15) NOT NULL,
-    hotelchain_ID INT REFERENCES Hotel_chain(hotelchain_ID) ON DELETE CASCADE,
+    hotelchain_ID INT REFERENCES hotel.Hotel_chain(hotelchain_ID) ON DELETE CASCADE,
     address VARCHAR(255) NOT NULL;
 );
 
@@ -33,7 +33,7 @@ CREATE TABLE hotel.employee (
     SSN_SIN VARCHAR(15) UNIQUE NOT NULL,  
     role_ID INT NOT NULL,  
     CONSTRAINT fk_employee_hotel FOREIGN KEY (hotel_ID) 
-        REFERENCES hotel.hotel(hotel_ID) ON DELETE CASCADE,
+        REFERENCES hotel(hotel_ID) ON DELETE CASCADE,
     CONSTRAINT fk_employee_position FOREIGN KEY (role_ID) 
         REFERENCES hotel.position(role_ID) ON DELETE RESTRICT
 );
@@ -51,14 +51,14 @@ CREATE TABLE hotel.room (
     hotel_ID INT NOT NULL,  
     room_number INT NOT NULL DEFAULT 1,
     price DECIMAL(10,2) CHECK (price >= 0) NOT NULL,  
-    capacity VARCHAR(20) CHECK (capacity IN ('single', 'double', 'suite')) NOT NULL,  
+    capacity VARCHAR(20) CHECK (capacity IN ('SINGLE', 'DOUBLE', 'SUITE')) NOT NULL,  
     extendable BOOLEAN DEFAULT FALSE,  
     damage TEXT DEFAULT NULL,  
-    view_type VARCHAR(50) CHECK (view_type IN ('sea', 'mountain', 'none')) NOT NULL,  
+    view_type VARCHAR(50) CHECK (view_type IN ('SEA', 'MOUNTAIN', 'NONE')) NOT NULL,  
     availability_status VARCHAR(20) CHECK (availability_status IN ('available', 'booked', 'rented', 'under maintenance')) DEFAULT 'available', 
     CONSTRAINT fk_room_hotel FOREIGN KEY (hotel_ID) 
-        REFERENCES hotel.hotel(hotel_ID) ON DELETE CASCADE
-    CONSTRAINT unique_room_per_hotel UNIQUE (hotel_ID, room_number);
+        REFERENCES hotel(hotel_ID) ON DELETE CASCADE,
+    CONSTRAINT unique_room_per_hotel UNIQUE (hotel_ID, room_number)
 );
 
 CREATE TABLE hotel.room_amenities (
@@ -115,7 +115,7 @@ CREATE TABLE hotel.archive (
     CONSTRAINT fk_archive_room FOREIGN KEY (room_ID) 
         REFERENCES hotel.room(room_ID) ON DELETE SET NULL,
     CONSTRAINT fk_archive_hotel FOREIGN KEY (hotel_ID) 
-        REFERENCES hotel.hotel(hotel_ID) ON DELETE SET NULL,
+        REFERENCES hotel(hotel_ID) ON DELETE SET NULL,
     CONSTRAINT fk_archive_customer FOREIGN KEY (customer_ID) 
         REFERENCES hotel.customer(customer_ID) ON DELETE SET NULL
 );
@@ -123,7 +123,7 @@ CREATE TABLE hotel.archive (
 CREATE TABLE hotel.managed_by (
     hotel_ID INT PRIMARY KEY,  
     employee_ID INT UNIQUE NOT NULL,  
-    FOREIGN KEY (hotel_ID) REFERENCES hotel.hotel(hotel_ID) ON DELETE CASCADE,
+    FOREIGN KEY (hotel_ID) REFERENCES hotel(hotel_ID) ON DELETE CASCADE,
     FOREIGN KEY (employee_ID) REFERENCES hotel.employee(employee_ID) ON DELETE CASCADE
 );
 

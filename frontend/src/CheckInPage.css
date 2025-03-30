@@ -1,0 +1,44 @@
+.checkin-container {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .checkin-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #4b2e1e;
+    text-align: center;
+  }
+  
+  .booking-card {
+    background-color: #fff8f2;
+    border: 1px solid #d4a373;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .booking-card p {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+  }
+  
+  .checkin-button {
+    margin-top: 1rem;
+    background-color: #b85d35;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .checkin-button:hover {
+    background-color: #a24d29;
+  }
+  
