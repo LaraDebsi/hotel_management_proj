@@ -176,6 +176,8 @@ function RoomSearch() {
               <p><strong>Capacity:</strong> {selectedRoom.capacity}</p>
               <p><strong>View:</strong> {selectedRoom.viewType}</p>
               <p><strong>Extendable:</strong> {selectedRoom.extendable ? 'Yes' : 'No'}</p>
+              {selectedRoom.amenities?.length > 0 && (
+              <p><strong>Amenities:</strong> {selectedRoom.amenities.map(a => a.amenity).join(', ')}</p>)}
               <p><strong>Problems:</strong> {selectedRoom.problems || 'None'}</p>
               
   
