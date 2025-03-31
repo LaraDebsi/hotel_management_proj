@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../HomePage.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function HomePage({role, setRole}) {
   const navigate = useNavigate();
@@ -27,7 +28,9 @@ function HomePage({role, setRole}) {
 
           {role === 'customer' && (
             <>
-              <button onClick={() => navigate('/my-bookings')}>View My Bookings</button>
+              <Link to="/customer-dashboard">
+                <button className="action-button">View My Bookings</button>
+              </Link>
               <button onClick={() => navigate('/cancel-booking')}>Cancel a Booking</button>
             </>
           )}

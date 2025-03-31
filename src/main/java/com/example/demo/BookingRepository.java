@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> { 
     List<Booking> findByStartDateGreaterThanEqual(LocalDate date);
+    List<Booking> findByCustomer_CustomerId(Long customerId);
 }

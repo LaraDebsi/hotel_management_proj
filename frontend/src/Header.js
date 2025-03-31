@@ -11,7 +11,7 @@ function Header({ role, setRole }) {
         {role === 'customer' ? (
           <>
             <Link to="/rooms" className="tab">Search</Link>
-            <Link to="/my-bookings" className="tab">My Bookings</Link>
+            <Link to="/customer-dashboard" className="tab">My Bookings</Link>
             <Link to="/cancel-booking" className="tab">Cancel</Link>
           </>
         ) : (

@@ -12,4 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface RentingRepository extends JpaRepository<Renting, Long> { 
     @Query("SELECT r FROM Renting r WHERE :today BETWEEN r.startDate AND r.endDate")
     List<Renting> findActiveRentings(@Param("today") LocalDate today);
+    List<Renting> findByCustomer_CustomerId(Long customerId);
 }

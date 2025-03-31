@@ -6,6 +6,9 @@ public class ArchiveDTO {
     public String customerName;
     public String hotelName;
     public int roomNumber;
+    public String startDate;
+    public String endDate;
+    public Double payment;
 
     public ArchiveDTO(Archive archive) {
         this.archiveId = archive.getArchiveId();
@@ -14,5 +17,10 @@ public class ArchiveDTO {
         this.customerName = archive.getCustomer().getFull_name();
         this.hotelName = archive.getHotel().getName();
         this.roomNumber = archive.getRoom().getRoomNumber();
+        if (archive.getRenting() != null) {
+            this.startDate = archive.getRenting().getStartDate().toString();
+            this.endDate = archive.getRenting().getEndDate().toString();
+            this.payment = archive.getRenting().getPayment();
+        }
     }
 }

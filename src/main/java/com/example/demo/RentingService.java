@@ -28,35 +28,60 @@ public class RentingService {
     private ArchiveRepository archiveRepository;
 
 
-    public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
-        Optional<Booking> bookingOpt = bookingRepository.findById(bookingId);
-        Optional<Employee> employeeOpt = employeeRepository.findById(employeeId);
+public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
+    System.out.println("🔁 Starting booking-to-renting conversion...");
+    System.out.println("📌 Booking ID: " + bookingId + ", Employee ID: " + employeeId);
 
-        if (bookingOpt.isPresent() && employeeOpt.isPresent()) {
-            Booking booking = bookingOpt.get();
-
-            // Check if Customer exists
-            Optional<Customer> customerOpt = customerRepository.findById(booking.getCustomer().getCustomerId());
-            if (customerOpt.isEmpty()) return false;
-
-            // Check if Room exists
-            Optional<Room> roomOpt = roomRepository.findById(booking.getRoom().getRoomId());
-            if (roomOpt.isEmpty()) return false;
-
-            Renting renting = new Renting();
-            renting.setCustomer(customerOpt.get());
-            renting.setRoom(roomOpt.get());
-            renting.setStartDate(booking.getStartDate());
-            renting.setEndDate(booking.getEndDate());
-            renting.setEmployee(employeeOpt.get());
-            renting.setPayment(roomOpt.get().getPrice());
-            
-            rentingRepository.save(renting);
-            bookingRepository.delete(booking);
-            return true;
-        }
+    Optional<Booking> bookingOpt = bookingRepository.findById(bookingId);
+    if (bookingOpt.isEmpty()) {
+        System.out.println("❌ Booking not found.");
         return false;
     }
+
+    Optional<Employee> employeeOpt = employeeRepository.findById(employeeId);
+    if (employeeOpt.isEmpty()) {
+        System.out.println("❌ Employee not found.");
+        return false;
+    }
+
+    Booking booking = bookingOpt.get();
+
+    Optional<Customer> customerOpt = customerRepository.findById(booking.getCustomer().getCustomerId());
+    if (customerOpt.isEmpty()) {
+        System.out.println("❌ Customer not found.");
+        return false;
+    }
+
+    Optional<Room> roomOpt = roomRepository.findById(booking.getRoom().getRoomId());
+    if (roomOpt.isEmpty()) {
+        System.out.println("❌ Room not found.");
+        return false;
+    }
+
+    System.out.println("✅ All references loaded, proceeding to convert...");
+
+    Renting renting = new Renting();
+    renting.setCustomer(customerOpt.get());
+    renting.setRoom(roomOpt.get());
+    renting.setStartDate(booking.getStartDate());
+    renting.setEndDate(booking.getEndDate());
+    renting.setEmployee(employeeOpt.get());
+    renting.setPayment(roomOpt.get().getPrice());
+
+    rentingRepository.save(renting);
+    System.out.println("💾 Renting saved.");
+
+    // Update room status
+    roomOpt.get().setAvailabilityStatus(Room.AvailabilityStatus.rented);
+    roomRepository.save(roomOpt.get());
+    System.out.println("🏨 Room marked as rented.");
+
+    bookingRepository.delete(booking);
+    System.out.println("🗑️ Booking deleted.");
+
+    return true;
+}
+
 
     public boolean handleDirectRent(DirectRentRequest request) {
         Optional<Room> roomOpt = roomRepository.findById(request.getRoomId());
@@ -135,6 +160,9 @@ public class RentingService {
 
         rentingRepository.save(renting);
 
+        roomOpt.get().setAvailabilityStatus(Room.AvailabilityStatus.rented);
+        roomRepository.save(roomOpt.get());
+
         room.setAvailabilityStatus(Room.AvailabilityStatus.rented);
         roomRepository.save(room);
 
@@ -154,8 +182,12 @@ public class RentingService {
             archive.setRoom(room);
             archive.setHotel(room.getHotel());
             archive.setCustomer(renting.getCustomer());
+
+            archive.setRenting(renting);
     
             Archive savedArchive = archiveRepository.save(archive);
+            System.out.println("🗂️ Archive saved: " + savedArchive.getArchiveId());
+            System.out.println("📆 Renting start: " + renting.getStartDate());
                         
             // 3. Mark room available again
             room.setAvailabilityStatus(Room.AvailabilityStatus.available);

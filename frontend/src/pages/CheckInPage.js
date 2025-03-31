@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../CheckInPage.css';
 
-const employeeId = 5; // Replace this with dynamic value if needed
+const employeeId = 7; // Replace this with dynamic value if needed
 
 const CheckInPage = () => {
   const [bookings, setBookings] = useState([]);
@@ -22,8 +22,8 @@ const CheckInPage = () => {
   }, []);
 
   const handleCheckIn = (bookingId) => {
-    fetch(`/api/renting/convert?bookingId=${bookingId}&employeeId=${employeeId}`, {
-      method: "POST"
+    fetch(`/api/rentings/convert?bookingId=${bookingId}&employeeId=${employeeId}`, {
+      method: 'POST',
     })
       .then(res => res.text())
       .then(msg => {

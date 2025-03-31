@@ -80,7 +80,7 @@ public class HomeController {
     }
 
     // 4. Convert Booking to Renting
-    @PostMapping("/renting/convert")
+    @PostMapping("/rentings/convert")
     public ResponseEntity<String> convertToRenting(@RequestParam Long bookingId, @RequestParam Long employeeId) {
         boolean success = rentingService.convertBookingToRenting(bookingId, employeeId);
         return success ? ResponseEntity.ok("Booking converted to renting.") : ResponseEntity.badRequest().body("Conversion failed.");
@@ -166,7 +166,21 @@ public class HomeController {
         return ResponseEntity.ok("💸 Payment of $" + amount + " recorded for rental ID: " + rentingId);
     }
 
+    @GetMapping("/bookings/customer/{customerId}")
+    public List<BookingDTO> getBookingsByCustomer(@PathVariable Long customerId) {
+        return bookingRepository.findByCustomer_CustomerId(customerId)
+                                .stream()
+                                .map(BookingDTO::new)
+                                .toList();
+    }
 
-    
+    @GetMapping("/rentings/customer/{customerId}")
+    public List<RentingDTO> getRentingsByCustomer(@PathVariable Long customerId) {
+        return rentingRepository.findByCustomer_CustomerId(customerId)
+                                .stream()
+                                .map(RentingDTO::new)
+                                .toList();
+}
+        
 
 }

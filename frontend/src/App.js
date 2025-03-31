@@ -10,6 +10,7 @@ import DirectRentPage from './pages/DirectRentPage';
 import ActiveRentingsPage from './pages/ActiveRentingsPage';
 import RentalHistoryPage from './pages/RentalHistoryPage';
 import AnalyticsPage from './pages/AnalyticsPage';
+import CustomerDashboard from './pages/CustomerDashboard';
 
 
 
@@ -38,6 +39,9 @@ function App() {
                 <Route path="/active-rentings" element={<ActiveRentingsPage />} />
                 <Route path="/rental-history" element={<RentalHistoryPage />} />
                 <Route path="/analytics" element={<AnalyticsPage />} />
+                <Route path="/customer-dashboard" element={<CustomerDashboard customerId={8} />} />
+
+
             </Routes>
         </Router>
     );
