@@ -5,6 +5,9 @@ const ActiveRentingsPage = () => {
   const [rentings, setRentings] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [selectedRentalId, setSelectedRentalId] = useState(null);
+  const [paymentAmount, setPaymentAmount] = useState('');
+
   const fetchRentings = () => {
     setLoading(true);
     const url = '/api/rentings/active';
@@ -40,6 +43,28 @@ const ActiveRentingsPage = () => {
     }
   };
 
+  const submitPayment = (rentingId) => {
+    if (!paymentAmount || isNaN(paymentAmount)) {
+      alert("Please enter a valid amount.");
+      return;
+    }
+  
+    fetch(`/api/rentings/payment?rentingId=${rentingId}&amount=${paymentAmount}`, {
+      method: 'POST',
+    })
+      .then(res => res.text())
+      .then(msg => {
+        alert(msg);
+        setPaymentAmount('');
+        setSelectedRentalId(null);
+        fetchRentings(); // Refresh the rentals list
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Failed to submit payment.");
+      });
+  };
+
   return (
     <div className="active-rentings-container">
       <h2>Active Rentings</h2>
@@ -68,6 +93,27 @@ const ActiveRentingsPage = () => {
                 <td>{r.payment}</td>
                 <td>
                     <button onClick={() => endRental(r.rentingId)}>End Rental</button>
+                </td>
+                <td>
+                  <button onClick={() => setSelectedRentalId(r.rentingId)}>
+                    Add Payment
+                  </button>
+
+                  {selectedRentalId === r.rentingId && (
+                    <div style={{ marginTop: '10px' }}>
+                      <input
+                        type="number"
+                        step="0.01"
+                        value={paymentAmount}
+                        onChange={(e) => setPaymentAmount(e.target.value)}
+                        placeholder="Enter amount"
+                        style={{ width: '100px', marginRight: '8px' }}
+                      />
+                      <button onClick={() => submitPayment(r.rentingId)}>
+                        Submit
+                      </button>
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}

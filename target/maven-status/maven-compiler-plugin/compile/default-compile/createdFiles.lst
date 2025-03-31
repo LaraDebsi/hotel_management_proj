@@ -9,10 +9,12 @@ com/example/demo/Room$ViewType.class
 com/example/demo/Archive.class
 com/example/demo/HotelChain.class
 com/example/demo/DemoApplication.class
+com/example/demo/HotelCapacityViewDTO.class
 com/example/demo/Employee.class
 com/example/demo/Customer.class
 com/example/demo/BookingService.class
 com/example/demo/Room$RoomCapacity.class
+com/example/demo/AvailableRoomViewDTO.class
 com/example/demo/RoomRepository.class
 com/example/demo/Renting.class
 com/example/demo/Booking.class

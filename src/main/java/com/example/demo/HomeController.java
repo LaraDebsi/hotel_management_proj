@@ -9,6 +9,8 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Optional;
+
 
 
 import java.util.List;
@@ -151,5 +153,20 @@ public class HomeController {
     public List<HotelCapacityViewDTO> getHotelCapacitiesView() {
         return roomService.getHotelCapacityView();
     }
+
+    @PostMapping("/rentings/payment")
+    public ResponseEntity<String> addPaymentToRental(@RequestParam Long rentingId, @RequestParam Double amount) {
+        Optional<Renting> rentingOpt = rentingRepository.findById(rentingId);
+        if (rentingOpt.isEmpty()) return ResponseEntity.badRequest().body("Rental not found.");
+
+        Renting renting = rentingOpt.get();
+        renting.setPayment(amount);
+        rentingRepository.save(renting);
+
+        return ResponseEntity.ok("💸 Payment of $" + amount + " recorded for rental ID: " + rentingId);
+    }
+
+
+    
 
 }
