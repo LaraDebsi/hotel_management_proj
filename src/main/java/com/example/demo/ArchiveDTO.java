@@ -17,10 +17,8 @@ public class ArchiveDTO {
         this.customerName = archive.getCustomer().getFull_name();
         this.hotelName = archive.getHotel().getName();
         this.roomNumber = archive.getRoom().getRoomNumber();
-        if (archive.getRenting() != null) {
-            this.startDate = archive.getRenting().getStartDate().toString();
-            this.endDate = archive.getRenting().getEndDate().toString();
-            this.payment = archive.getRenting().getPayment();
-        }
+        this.startDate = archive.getStartDate() != null ? archive.getStartDate().toString() : null;
+        this.endDate = archive.getEndDate() != null ? archive.getEndDate().toString() : null;
+        this.payment = archive.getPayment();
     }
 }

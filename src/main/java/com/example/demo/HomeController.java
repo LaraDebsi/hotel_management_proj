@@ -180,7 +180,9 @@ public class HomeController {
                                 .stream()
                                 .map(RentingDTO::new)
                                 .toList();
-}
+    }
+
+
         
 
 }

@@ -182,12 +182,14 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
             archive.setRoom(room);
             archive.setHotel(room.getHotel());
             archive.setCustomer(renting.getCustomer());
+            archive.setStartDate(renting.getStartDate());
+            archive.setEndDate(renting.getEndDate());
+            archive.setPayment(renting.getPayment());
 
-            archive.setRenting(renting);
+
     
             Archive savedArchive = archiveRepository.save(archive);
-            System.out.println("🗂️ Archive saved: " + savedArchive.getArchiveId());
-            System.out.println("📆 Renting start: " + renting.getStartDate());
+
                         
             // 3. Mark room available again
             room.setAvailabilityStatus(Room.AvailabilityStatus.available);

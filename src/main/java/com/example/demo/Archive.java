@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "archive", schema = "hotel")
@@ -31,6 +32,15 @@ public class Archive {
     @JoinColumn(name = "customer_ID", nullable = false)
     private Customer customer;
 
+    @Column(name = "start_date")
+    private LocalDate startDate;
+
+    @Column(name = "end_date")
+    private LocalDate endDate;
+
+    @Column(name = "payment")
+    private Double payment;
+
     // Getters and Setters
     public Long getArchiveId() { return archiveId; }
     public void setArchiveId(Long archiveId) { this.archiveId = archiveId; }
@@ -49,4 +59,13 @@ public class Archive {
 
     public Customer getCustomer() { return customer; }
     public void setCustomer(Customer customer) { this.customer = customer; }
+
+    public LocalDate getStartDate() {return startDate;}
+    public void setStartDate(LocalDate startDate) {this.startDate = startDate;}
+    
+    public LocalDate getEndDate() {return endDate;}
+    public void setEndDate(LocalDate endDate) {this.endDate = endDate;}
+    
+    public Double getPayment() {return payment;}
+    public void setPayment(Double payment) {this.payment = payment;}
 }
