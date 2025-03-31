@@ -182,7 +182,15 @@ public class HomeController {
                                 .toList();
     }
 
-
+    @DeleteMapping("/booking/cancel/{bookingId}")
+    public ResponseEntity<String> cancelBooking(@PathVariable Long bookingId) {
+        if (bookingRepository.existsById(bookingId)) {
+            bookingRepository.deleteById(bookingId);
+            return ResponseEntity.ok("✅ Booking canceled.");
+        } else {
+            return ResponseEntity.badRequest().body("❌ Booking not found.");
+        }
+    }
         
 
 }

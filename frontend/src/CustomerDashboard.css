@@ -32,4 +32,19 @@
     margin-top: 2rem;
     color: #7a5524;
   }
+
+  .bookings-table button {
+    padding: 6px 12px;
+    font-weight: bold;
+    background-color: #d3682fb4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .bookings-table button:hover {
+    background-color: #b71c1c;
+  }
   

@@ -15,13 +15,30 @@ const CustomerDashboard = ({ customerId = 8 }) => {
       .then(setRentings);
   }, [customerId]);
 
+  const cancelBooking = (bookingId) => {
+    if (window.confirm("Cancel this booking?")) {
+      fetch(`/api/booking/cancel/${bookingId}`, {
+        method: 'DELETE',
+      })
+        .then(res => res.text())
+        .then(msg => {
+          alert(msg);
+          setBookings(prev => prev.filter(b => b.bookingId !== bookingId));
+        })
+        .catch(err => {
+          console.error("Cancel failed:", err);
+          alert("❌ Failed to cancel booking.");
+        });
+    }
+  };
+
   return (
     <div className="dashboard-container">
       <h2>Welcome, Customer #{customerId}</h2>
 
       <section>
         <h3>Your Bookings</h3>
-        <table>
+        <table className="bookings-table">
           <thead>
             <tr><th>Room</th><th>Hotel</th><th>Start</th><th>End</th></tr>
           </thead>
@@ -32,6 +49,9 @@ const CustomerDashboard = ({ customerId = 8 }) => {
                 <td>{b.hotelName}</td>
                 <td>{b.startDate}</td>
                 <td>{b.endDate}</td>
+                <td>
+                  <button onClick={() => cancelBooking(b.bookingId)}>Cancel</button>
+                </td>
               </tr>
             ))}
           </tbody>
