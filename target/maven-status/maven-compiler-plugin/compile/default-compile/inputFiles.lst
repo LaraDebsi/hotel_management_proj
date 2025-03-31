@@ -1,6 +1,7 @@
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Archive.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/ArchiveDTO.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/ArchiveRepository.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/AvailableRoomViewDTO.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Booking.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingDTO.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/BookingRepository.java
@@ -15,6 +16,7 @@
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/EmployeeRepository.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/HomeController.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Hotel.java
+/Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/HotelCapacityViewDTO.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/HotelChain.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Position.java
 /Users/laradebsi/Documents/Year_3/CSI2132/hotel_management_proj/src/main/java/com/example/demo/Renting.java

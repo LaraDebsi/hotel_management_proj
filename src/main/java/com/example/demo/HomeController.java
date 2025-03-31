@@ -142,5 +142,14 @@ public class HomeController {
         return archived.stream().map(ArchiveDTO::new).toList();
     }
     
+    @GetMapping("/views/available-rooms")
+    public List<AvailableRoomViewDTO> getAvailableRoomsPerCity() {
+        return roomService.getAvailableRoomsView();
+    }
+
+    @GetMapping("/views/hotel-capacities")
+    public List<HotelCapacityViewDTO> getHotelCapacitiesView() {
+        return roomService.getHotelCapacityView();
+    }
 
 }
