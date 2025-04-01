@@ -34,7 +34,7 @@ public class Renting {
     private Double payment;
 
     @ManyToOne
-    @JoinColumn(name = "employee_ID", nullable = false) // Foreign key reference
+    @JoinColumn(name = "employee_ID", nullable = false) 
     private Employee employee;
 
     // Getters and Setters

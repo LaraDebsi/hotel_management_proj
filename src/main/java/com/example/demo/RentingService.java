@@ -29,8 +29,8 @@ public class RentingService {
 
 
 public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
-    System.out.println("🔁 Starting booking-to-renting conversion...");
-    System.out.println("📌 Booking ID: " + bookingId + ", Employee ID: " + employeeId);
+    System.out.println("Starting booking-to-renting conversion...");
+    System.out.println("Booking ID: " + bookingId + ", Employee ID: " + employeeId);
 
     Optional<Booking> bookingOpt = bookingRepository.findById(bookingId);
     if (bookingOpt.isEmpty()) {
@@ -69,15 +69,14 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
     renting.setPayment(roomOpt.get().getPrice());
 
     rentingRepository.save(renting);
-    System.out.println("💾 Renting saved.");
+    System.out.println("Renting saved.");
 
-    // Update room status
     roomOpt.get().setAvailabilityStatus(Room.AvailabilityStatus.rented);
     roomRepository.save(roomOpt.get());
-    System.out.println("🏨 Room marked as rented.");
+    System.out.println("Room marked as rented.");
 
     bookingRepository.delete(booking);
-    System.out.println("🗑️ Booking deleted.");
+    System.out.println("Booking deleted.");
 
     return true;
 }
@@ -92,10 +91,9 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
         Room room = roomOpt.get();
         Employee emp = empOpt.get();
     
-        // Check if room is available
         if (room.getAvailabilityStatus() == Room.AvailabilityStatus.rented) return false;
     
-        // Check if customer exists by SSN
+
         Customer customer = customerRepository.findBySsnSin(request.getSsn())
             .orElseGet(() -> {
                 Customer c = new Customer();
@@ -106,7 +104,6 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
                 return customerRepository.save(c);
             });
     
-        // Create renting
         Renting renting = new Renting();
         renting.setRoom(room);
         renting.setCustomer(customer);
@@ -116,8 +113,7 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
         renting.setPayment(room.getPrice());
     
         rentingRepository.save(renting);
-    
-        // Mark room as occupied
+
         room.setAvailabilityStatus(Room.AvailabilityStatus.rented);
         roomRepository.save(room);
     
@@ -139,7 +135,6 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
             return "Room is already rented.";
         }
 
-        // Check or create customer
         Customer customer = customerRepository.findBySsnSin(request.getSsn())
             .orElseGet(() -> {
                 Customer c = new Customer();
@@ -176,9 +171,9 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
             Renting renting = rentingOpt.get();
             Room room = renting.getRoom();
     
-            // 1. Archive the rental
+
             Archive archive = new Archive();
-            archive.setBooking(renting.getBooking()); // nullable
+            archive.setBooking(renting.getBooking()); 
             archive.setRoom(room);
             archive.setHotel(room.getHotel());
             archive.setCustomer(renting.getCustomer());
@@ -189,13 +184,11 @@ public boolean convertBookingToRenting(Long bookingId, Long employeeId) {
 
     
             Archive savedArchive = archiveRepository.save(archive);
-
                         
-            // 3. Mark room available again
+
             room.setAvailabilityStatus(Room.AvailabilityStatus.available);
             roomRepository.save(room);
     
-            // 4. Delete the renting (if desired)
             rentingRepository.delete(renting);
 
 

@@ -34,7 +34,7 @@ const ActiveRentingsPage = () => {
         .then(res => res.text())
         .then(msg => {
           alert(msg);
-          fetchRentings(); // Refresh list
+          fetchRentings(); 
         })
         .catch(err => {
           console.error("Failed to end rental:", err);
@@ -57,7 +57,7 @@ const ActiveRentingsPage = () => {
         alert(msg);
         setPaymentAmount('');
         setSelectedRentalId(null);
-        fetchRentings(); // Refresh the rentals list
+        fetchRentings(); 
       })
       .catch(err => {
         console.error(err);

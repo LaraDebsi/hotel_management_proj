@@ -24,11 +24,6 @@ const EmployeeDashboard = () => {
         <p>Browse all past rentals and archived check-outs.</p>
       </div>
 
-      {/* Optional: Add this later */}
-      {/* <div className="dashboard-card" onClick={() => navigate('/end-rental')}>
-        <h3>End a Rental</h3>
-        <p>Mark a room as available again.</p>
-      </div> */}
     </div>
   );
 };

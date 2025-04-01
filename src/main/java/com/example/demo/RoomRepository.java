@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
         @Query("SELECT r FROM Room r " +
-              "JOIN FETCH r.hotel h " + // <--- this ensures hotel is loaded
+              "JOIN FETCH r.hotel h " + 
               "WHERE (:area IS NULL OR h.city LIKE %:area%) " +
               "AND (:capacity IS NULL OR r.capacity = :capacity) " +
               "AND (:maxPrice IS NULL OR r.price <= :maxPrice) " +

@@ -3,7 +3,7 @@
 QUERY:
 
 SELECT h.hotel_id, h.name, COUNT(b.booking_id) AS total_bookings
-FROM hotel h
+FROM hotel.hotel h
 JOIN hotel.room r ON h.hotel_id = r.hotel_id
 JOIN hotel.booking b ON r.room_id = b.room_id
 GROUP BY h.hotel_id, h.name
@@ -27,7 +27,7 @@ QUERY:
 
 SELECT r.room_id, r.room_number, h.name, r.price
 FROM hotel.room r
-JOIN hotel h ON r.hotel_id = h.hotel_id
+JOIN hotel.hotel h ON r.hotel_id = h.hotel_id
 WHERE r.room_id NOT IN (
     SELECT room_id FROM hotel.booking WHERE NOW() BETWEEN start_date AND end_date
 ) AND r.availability_status = 'available';
@@ -54,7 +54,7 @@ A sample of answers:
 QUERY:
 
 SELECT h.hotel_id, h.name, total_revenue
-FROM hotel h
+FROM hotel.hotel h
 JOIN (
     SELECT r.hotel_id, 
            SUM(r.price * CAST((b.end_date - b.start_date) AS INTEGER)) AS total_revenue

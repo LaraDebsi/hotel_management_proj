@@ -3,7 +3,7 @@ VIEW 1: This view counts how many available rooms exist in each city where hotel
 CREATE VIEW hotel.available_rooms_per_city AS
 SELECT h.city AS hotel_city, COUNT(r.room_id) AS available_rooms
 FROM hotel.room r
-JOIN hotel h ON r.hotel_id = h.hotel_id
+JOIN hotel.hotel h ON r.hotel_id = h.hotel_id
 WHERE r.availability_status = 'available'
 GROUP BY h.city;
 
@@ -18,6 +18,6 @@ SELECT h.hotel_id, h.name, SUM(
         ELSE 0
     END
 ) AS total_capacity
-FROM hotel h
+FROM hotel.hotel h
 JOIN hotel.room r ON h.hotel_id = r.hotel_id
 GROUP BY h.hotel_id, h.name;

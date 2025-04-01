@@ -13,7 +13,6 @@ public class RoomAmenitiesKey implements Serializable {
     @Column(name = "amenity")
     private String amenity;
 
-    // Default Constructor (Required by Hibernate)
     public RoomAmenitiesKey() {}
 
     public RoomAmenitiesKey(Long roomId, String amenity) {
@@ -28,7 +27,7 @@ public class RoomAmenitiesKey implements Serializable {
     public String getAmenity() { return amenity; }
     public void setAmenity(String amenity) { this.amenity = amenity; }
 
-    // Override equals() and hashCode() for proper key comparison
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -44,13 +44,11 @@ public class HomeController {
     System.out.println("HomeController Loaded. RoomService, BookingService, RentingService Injected!");
 }
 
-    // 1. Welcome message
     @GetMapping("/")
     public String home() {
         return "Welcome to the Hotel Management System!";
     }
 
-    // 2. Search Available Rooms
     @GetMapping("/rooms/search")
     public List<Room> searchRooms(@RequestParam(required = false) String area,
                                   @RequestParam(required = false) Room.RoomCapacity capacity,
@@ -68,7 +66,6 @@ public class HomeController {
         return roomService.getAllHotelChains();
     }
 
-    // 3. Create a Booking
     @PostMapping("/booking/create")
     public ResponseEntity<String> createBooking(@RequestBody BookingRequest bookingRequest) {
         try {
@@ -79,7 +76,6 @@ public class HomeController {
         }
     }
 
-    // 4. Convert Booking to Renting
     @PostMapping("/rentings/convert")
     public ResponseEntity<String> convertToRenting(@RequestParam Long bookingId, @RequestParam Long employeeId) {
         boolean success = rentingService.convertBookingToRenting(bookingId, employeeId);
@@ -92,7 +88,7 @@ public class HomeController {
         List<Booking> bookings = bookingRepository.findByStartDateGreaterThanEqual(today);
         return bookings.stream()
                        .map(BookingDTO::new)
-                       .toList(); // or use Collectors.toList()
+                       .toList(); 
     }
 
     @PostMapping("/renting/direct")

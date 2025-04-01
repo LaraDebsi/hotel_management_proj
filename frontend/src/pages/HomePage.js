@@ -31,7 +31,7 @@ function HomePage({role, setRole}) {
               <Link to="/customer-dashboard">
                 <button className="action-button">View My Bookings</button>
               </Link>
-              <button onClick={() => navigate('/cancel-booking')}>Cancel a Booking</button>
+              
             </>
           )}
 

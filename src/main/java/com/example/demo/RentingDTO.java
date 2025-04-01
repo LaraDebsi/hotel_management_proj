@@ -21,7 +21,7 @@ public class RentingDTO {
     }
 
     public RentingDTO(Archive archive) {
-        this.rentingId = archive.getArchiveId(); // or archive.getRenting().getId() if needed
+        this.rentingId = archive.getArchiveId(); 
         this.customerName = archive.getCustomer().getFull_name();
         this.roomNumber = archive.getRoom().getRoomNumber();
         this.hotelName = archive.getHotel().getName();

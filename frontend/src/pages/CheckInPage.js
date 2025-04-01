@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../CheckInPage.css';
 
-const employeeId = 7; // Replace this with dynamic value if needed
+const employeeId = 7; // hardcoded employee id for frontend 
 
 const CheckInPage = () => {
   const [bookings, setBookings] = useState([]);
@@ -11,7 +11,7 @@ const CheckInPage = () => {
     fetch("/api/bookings/upcoming")
       .then(res => res.json())
       .then(data => {
-        console.log("📦 API Response:", data);
+        console.log("API Response:", data);
         setBookings(data);
         setLoading(false);
       })
@@ -28,7 +28,7 @@ const CheckInPage = () => {
       .then(res => res.text())
       .then(msg => {
         alert(msg);
-        setBookings(prev => prev.filter(b => b.bookingId !== bookingId)); // remove from list
+        setBookings(prev => prev.filter(b => b.bookingId !== bookingId)); 
       })
       .catch(err => {
         console.error("Check-in failed:", err);

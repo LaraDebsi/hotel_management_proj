@@ -48,10 +48,9 @@ public class Room {
     @JsonManagedReference
     private List<RoomAmenities> amenities;
 
-    // Enum for view type
     public enum ViewType { SEA, MOUNTAIN, NONE }
 
-    // Enum for availability status
+
     public enum AvailabilityStatus { available, booked, rented, under_maintenance }
 
     public enum RoomCapacity {

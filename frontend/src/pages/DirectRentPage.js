@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../DirectRentPage.css';
 
-const employeeId = 7;
+const employeeId = 7; // hardcoded employee id for frontend 
 const DirectRentPage = () => {
   const [form, setForm] = useState({
     roomId: '',
